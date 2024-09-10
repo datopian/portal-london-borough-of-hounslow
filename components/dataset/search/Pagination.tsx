@@ -42,7 +42,7 @@ export default function Pagination({
         <button
           key={x}
           className={`${
-            x == options.offset / 5 ? "bg-orange-500 text-white" : ""
+            x == options.offset / 5 ? "bg-lightaccent text-white" : ""
           } px-2 rounded font-semibold`}
           onClick={() => setOptions({ ...options, offset: x * 5 })}
           style={{

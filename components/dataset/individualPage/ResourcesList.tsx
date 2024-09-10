@@ -34,7 +34,7 @@ export default function ResourcesList({
             {resource.url && (
               <Link
                 href={resource.url}
-                className="bg-accent h-auto py-2 px-4 text-sm text-gray-800 rounded-xl font-roboto font-bold hover:bg-cyan-800 hover:text-white duration-150 flex items-center gap-1"
+                className="bg-accent h-auto py-2 px-4 text-sm text-gray-800 rounded-xl font-roboto font-bold hover:bg-cyan-800 text-white duration-150 flex items-center gap-1"
               >
                 Download
                 <svg
@@ -58,7 +58,7 @@ export default function ResourcesList({
             ) && (
               <Link
                 href={`/${orgName}/${datasetName}/r/${resource.id}`}
-                className="bg-lightaccent h-auto py-2 px-4 text-sm text-gray-800 rounded-xl font-roboto font-bold hover:bg-accent duration-150 flex items-center gap-1"
+                className="bg-lightaccent h-auto py-2 px-4 text-sm text-white rounded-xl font-roboto font-bold hover:bg-accent duration-150 flex items-center gap-1"
               >
                 Preview{" "}
                 <svg

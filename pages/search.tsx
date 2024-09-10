@@ -73,10 +73,8 @@ export default function DatasetSearch({
         <div className="grid grid-rows-searchpage-hero">
           <section className="row-start-1 row-span-3 col-span-full">
             <div
-              className="bg-cover bg-center bg-no-repeat bg-black h-[414px] flex flex-col"
-              style={{
-                backgroundImage: "url('/images/backgrounds/SearchHero.avif')",
-              }}
+              className="bg-cover bg-center bg-no-repeat bg-[#65316c] h-[414px] flex flex-col"
+             
             >
               <TopBar />
               <div

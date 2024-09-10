@@ -135,6 +135,7 @@ const Footer: React.FC = () => {
         <a
           href="https://portaljs.org"
           target="_blank"
+          rel="noreferrer"
           className="text-xl font-medium"
         >
           🌀 PortalJS

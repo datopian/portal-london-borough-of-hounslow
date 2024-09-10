@@ -1,23 +1,23 @@
-import Link from "next/link";
-import { format } from "timeago.js";
-import { Dataset, Resource, Tag } from "@portaljs/ckan";
-import { ArrowDownTrayIcon } from "@heroicons/react/20/solid";
+import Link from 'next/link'
+import { format } from 'timeago.js'
+import { Dataset, Resource, Tag } from '@portaljs/ckan'
+import { ArrowDownTrayIcon } from '@heroicons/react/20/solid'
 
 function uniqueFormat(resources) {
-  const formats = resources.map((item: Resource) => item.format);
-  return [...new Set(formats)];
+  const formats = resources.map((item: Resource) => item.format)
+  return [...new Set(formats)]
 }
 
 export default function DatasetInfo({
   dataset,
 }: {
-  dataset: Dataset & { _name: string };
+  dataset: Dataset & { _name: string }
 }) {
   const metaFormats = [
-    { format: "jsonld", label: "JSON-LD" },
-    { format: "rdf", label: "RDF" },
-    { format: "ttl", label: "TTL" },
-  ];
+    { format: 'jsonld', label: 'JSON-LD' },
+    { format: 'rdf', label: 'RDF' },
+    { format: 'ttl', label: 'TTL' },
+  ]
   return (
     <div className="flex flex-col">
       <div className="flex flex-col gap-y-3">
@@ -53,7 +53,7 @@ export default function DatasetInfo({
               d="M7.5 3.75H6A2.25 2.25 0 003.75 6v1.5M16.5 3.75H18A2.25 2.25 0 0120.25 6v1.5m0 9V18A2.25 2.25 0 0118 20.25h-1.5m-9 0H6A2.25 2.25 0 013.75 18v-1.5M15 12a3 3 0 11-6 0 3 3 0 016 0z"
             />
           </svg>
-          Formats: {uniqueFormat(dataset.resources).join(", ")}
+          Formats: {uniqueFormat(dataset.resources).join(', ')}
         </span>
         <span className="font-medium text-gray-500 inline">
           <svg
@@ -70,7 +70,7 @@ export default function DatasetInfo({
               d="M6.75 3v2.25M17.25 3v2.25M3 18.75V7.5a2.25 2.25 0 012.25-2.25h13.5A2.25 2.25 0 0121 7.5v11.25m-18 0A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75m-18 0v-7.5A2.25 2.25 0 015.25 9h13.5A2.25 2.25 0 0121 11.25v7.5m-9-6h.008v.008H12v-.008zM12 15h.008v.008H12V15zm0 2.25h.008v.008H12v-.008zM9.75 15h.008v.008H9.75V15zm0 2.25h.008v.008H9.75v-.008zM7.5 15h.008v.008H7.5V15zm0 2.25h.008v.008H7.5v-.008zm6.75-4.5h.008v.008h-.008v-.008zm0 2.25h.008v.008h-.008V15zm0 2.25h.008v.008h-.008v-.008zm2.25-4.5h.008v.008H16.5v-.008zm0 2.25h.008v.008H16.5V15z"
             />
           </svg>
-          Created:{" "}
+          Created:{' '}
           {dataset.metadata_created && format(dataset.metadata_created)}
         </span>
         <span className="font-medium text-gray-500 inline">
@@ -88,13 +88,13 @@ export default function DatasetInfo({
               d="M12 6v6h4.5m4.5 0a9 9 0 11-18 0 9 9 0 0118 0z"
             />
           </svg>
-          Updated:{" "}
+          Updated:{' '}
           {dataset.metadata_modified && format(dataset.metadata_modified)}
         </span>
       </div>
       <div className="py-4 my-4 border-y">
         <p className="text-sm font-normal text-stone-500 line-clamp-4">
-          {dataset.notes?.replace(/<\/?[^>]+(>|$)/g, "") || "No description"}
+          {dataset.notes?.replace(/<\/?[^>]+(>|$)/g, '') || 'No description'}
         </p>
       </div>
       <div className="flex flex-wrap gap-1">
@@ -108,8 +108,8 @@ export default function DatasetInfo({
         ))}
       </div>
       <span className="font-medium text-gray-500 inline">
+        <div>Export metadata as: </div>
         <div className="flex flex-wrap gap-x-2 items-center">
-          <div>Export metadata as: </div>
           {metaFormats.map((item) => (
             <div key={item.format}>
               <Link
@@ -126,5 +126,5 @@ export default function DatasetInfo({
         </div>
       </span>
     </div>
-  );
+  )
 }
