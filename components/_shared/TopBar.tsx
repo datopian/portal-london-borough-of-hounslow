@@ -17,7 +17,7 @@ export default function Example() {
           <Link href="/">
             <img
               src="/images/logos/MainLogo.svg"
-              width="60px"
+              width="280px"
               height="60px"
               alt="Portal"
             ></img>

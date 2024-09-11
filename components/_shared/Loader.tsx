@@ -40,7 +40,7 @@ export default function Loader(props) {
   return (
     <div className="fixed top-0 left-0 right-0 bottom-0 w-full h-screen z-50 overflow-hidden bg-gray-700 bg-opacity-50 flex flex-col items-center justify-center">
       <div
-        className="animate-spin inline-block w-16 h-16 border-[5px] border-current border-t-transparent text-[#00BBC2] rounded-full"
+        className="animate-spin inline-block w-16 h-16 border-[5px] border-current border-t-transparent text-[#65316c] rounded-full"
         role="status"
         aria-label="loading"
       ></div>

@@ -71,9 +71,8 @@ export default function ResourcePage({
         <div className="grid grid-rows-datasetpage-hero">
           <section className="row-start-1 row-end-3 col-span-full">
             <div
-              className="bg-cover h-full bg-center bg-no-repeat bg-black flex flex-col"
+              className="bg-cover h-full bg-center bg-no-repeat bg-accent flex flex-col"
               style={{
-                backgroundImage: "url('/images/backgrounds/SearchHero.avif')",
                 marginBottom: "4rem",
               }}
             >
@@ -146,7 +145,7 @@ export default function ResourcePage({
               <div className="custom-container py-4">
                 <Link
                   href={resource.url}
-                  className="bg-accent h-auto py-2 px-4 text-sm text-gray-800 rounded-xl font-roboto font-bold hover:bg-cyan-800 hover:text-white duration-150 flex items-center gap-1 w-fit"
+                  className="bg-accent h-auto py-2 px-4 text-sm text-gray-800 rounded-xl font-roboto font-bold hover:bg-cyan-800 text-white duration-150 flex items-center gap-1 w-fit"
                 >
                   Download
                   <svg

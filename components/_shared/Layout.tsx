@@ -3,7 +3,7 @@ import Footer from "./Footer";
 
 export default function Layout({ children }: { children: React.ReactNode }) {
   return (
-    <div className="bg-gradient-to-b from-gray-50 via-gray-50 to-lightaccent">
+    <div className="bg-gradient-to-b from-gray-50 via-gray-50 to-[#65316c]">
       {children}
       <Footer />
     </div>

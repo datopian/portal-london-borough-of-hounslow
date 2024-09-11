@@ -8,23 +8,22 @@ export default function Hero({ stats }: { stats: StatsProps }) {
     <section className="sm:grid sm:grid-rows-frontpage-hero">
       <section className="row-start-1 row-span-3 col-span-full">
         <div
-          className="bg-cover bg-center bg-no-repeat bg-black flex flex-col h-full"
+          className="bg-gradient-to-b from-[#65316c] to-gray-50 via-gray-50 flex flex-col h-full"
           style={{
-            backgroundImage: "url('/images/backgrounds/HomeHero.png')",
             minHeight: "95vh",
           }}
         >
           <TopBar />
           <div className="grid lg:grid-cols-2 mx-auto items-center grow custom-container">
             <div className="col-span-1">
-              <h3 className="text-xs font-medium pb-2 uppercase text-gray-400 tracking-widest sm:text-base lg:text-sm xl:text-base">
+              <h3 className="text-xs font-medium pb-2 uppercase tracking-widest sm:text-base lg:text-sm xl:text-base">
                 Quality Data ready to Integrate
               </h3>
               <h1 className="text-6xl font-black text-white">Find and Share</h1>
-              <h1 className="text-6xl font-black text-cyan-500">
+              <h1 className="text-6xl font-black text-accent">
                 Quality Data
               </h1>
-              <h3 className="text-xl text-gray-300 py-6">
+              <h3 className="text-xl  py-6">
                 At Portal, we have over thousands of datasets for free and a
                 Premium Data Service for additional or customised data with
                 guaranteed updates.
@@ -32,7 +31,7 @@ export default function Hero({ stats }: { stats: StatsProps }) {
               <div className="sm:max-w-lg sm:text-center lg:text-left lg:mx-0">
                 <SearchForm />
               </div>
-              <div className="sm:max-w-lg py-4 lg:pb-12 sm:py-0">
+              <div className="sm:max-w-lg py-4 sm:py-0">
                 <Stats
                   datasetCount={stats.datasetCount}
                   orgCount={stats.orgCount}

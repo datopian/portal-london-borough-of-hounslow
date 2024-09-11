@@ -61,7 +61,7 @@ export default function DatasetCard({
         )) || (
           <>
             {showOrg !== false && (
-              <span className="bg-gray-200 px-4 py-1 rounded-full text-xs">
+              <span className="bg-accent px-4 py-1 rounded-full text-xs">
                 {dataset.organization
                   ? dataset.organization.title
                   : "No organization"}

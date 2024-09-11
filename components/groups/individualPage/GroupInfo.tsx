@@ -18,7 +18,7 @@ export default function GroupInfo({ group }: { group: Group }) {
           url &&
           (process.env.DOMAINS ?? []).includes(url.hostname)
             ? group.image_display_url
-            : "/images/logos/DefaultGroupLogo.svg"
+            : "/images/logos/DefaultOrgLogo.svg"
         }
         alt={`${group.name}-collection`}
       />

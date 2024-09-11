@@ -119,10 +119,8 @@ export default function DatasetPage({
         <div className="grid grid-rows-datasetpage-hero">
           <section className="row-start-1 row-end-3 col-span-full">
             <div
-              className="bg-cover h-full bg-center bg-no-repeat bg-black flex flex-col"
-              style={{
-                backgroundImage: "url('/images/backgrounds/SearchHero.avif')",
-              }}
+              className="bg-cover h-full bg-center bg-no-repeat bg-accent flex flex-col"
+
             >
               <TopBar />
               <DatasetNavCrumbs
