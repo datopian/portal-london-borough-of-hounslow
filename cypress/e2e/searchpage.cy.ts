@@ -107,7 +107,7 @@ describe("Search Tests", () => {
       cy.wait("@filter_by_org").then((interception) => {
         console.log(interception);
         cy.wait(1000);
-        cy.get("h2.text-4xl.capitalize.font-bold.text-zinc-900")
+        cy.get("h2.text-4xl.capitalize.font-bold.text-secondary")
           .invoke("text")
           .then((text) => {
             expect(text.toString().toLowerCase()).to.contain(
@@ -125,7 +125,7 @@ describe("Search Tests", () => {
       cy.wait("@filter_by_groups").then((interception) => {
         console.log(interception);
         cy.wait(1000);
-        cy.get("h2.text-4xl.capitalize.font-bold.text-zinc-900")
+        cy.get("h2.text-4xl.capitalize.font-bold.text-secondary")
           .invoke("text")
           .then((text) => {
             expect(text.toString().toLowerCase()).to.contain(
@@ -141,7 +141,7 @@ describe("Search Tests", () => {
 
       cy.wait("@filter_by_keyword").then((interception) => {
         cy.wait(1000);
-        cy.get("h2.text-4xl.capitalize.font-bold.text-zinc-900")
+        cy.get("h2.text-4xl.capitalize.font-bold.text-secondary")
           .invoke("text")
           .then((text) => {
             expect(text.toString().toLowerCase()).to.contain(
@@ -159,7 +159,7 @@ describe("Search Tests", () => {
       cy.wait("@filter_by_org_groups").then((interception) => {
         console.log(interception);
         cy.wait(1000);
-        cy.get("h2.text-4xl.capitalize.font-bold.text-zinc-900")
+        cy.get("h2.text-4xl.capitalize.font-bold.text-secondary")
           .invoke("text")
           .then((text) => {
             expect(text.toString().toLowerCase()).to.contain(
@@ -179,7 +179,7 @@ describe("Search Tests", () => {
       cy.wait("@filter_by_org_tags").then((interception) => {
         console.log(interception);
         cy.wait(1000);
-        cy.get("h2.text-4xl.capitalize.font-bold.text-zinc-900")
+        cy.get("h2.text-4xl.capitalize.font-bold.text-secondary")
           .invoke("text")
           .then((text) => {
             expect(text.toString().toLowerCase()).to.contain(
@@ -199,7 +199,7 @@ describe("Search Tests", () => {
       cy.wait("@filter_by_org_groups_tags").then((interception) => {
         console.log(interception);
         cy.wait(1000);
-        cy.get("h2.text-4xl.capitalize.font-bold.text-zinc-900")
+        cy.get("h2.text-4xl.capitalize.font-bold.text-secondary")
           .invoke("text")
           .then((text) => {
             expect(text.toString().toLowerCase()).to.contain(
@@ -217,7 +217,7 @@ describe("Search Tests", () => {
       cy.wait("@filter_by_org").then((interception) => {
         console.log(interception);
         cy.wait(1000);
-        cy.get("h2.text-4xl.capitalize.font-bold.text-zinc-900")
+        cy.get("h2.text-4xl.capitalize.font-bold.text-secondary")
           .invoke("text")
           .then((text) => {
             expect(text.toString().toLowerCase()).to.contain(
@@ -244,4 +244,4 @@ describe("Search Tests", () => {
   });
 });
 
-export {};
+export { };

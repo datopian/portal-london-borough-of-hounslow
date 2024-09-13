@@ -22,10 +22,10 @@ export default function ResourcesList({
           <article className="grid grid-cols-1 sm:grid-cols-6 gap-x-2 grow">
             <ResourceCard resource={resource} />
             <div className="col-span-5 place-content-start flex flex-col gap-0">
-              <h4 className="m-auto md:m-0 font-semibold text-lg text-zinc-900 leading-tight line-clamp-3 pr-5">
+              <h4 className="m-auto md:m-0 font-semibold text-lg text-secondary leading-tight line-clamp-3 pr-5">
                 {resource.name || 'No title'}
               </h4>
-              <p className="text-sm font-normal text-stone-500 line-clamp-4">
+              <p className="text-sm font-normal text-secondary line-clamp-4">
                 {resource.description || 'No description'}
               </p>
             </div>

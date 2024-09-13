@@ -21,7 +21,7 @@ export default function DatasetInfo({
   return (
     <div className="flex flex-col">
       <div className="flex flex-col gap-y-3">
-        <span className="font-medium text-gray-500 inline">
+        <span className="font-medium text-secondary inline">
           <svg
             xmlns="http://www.w3.org/2000/svg"
             fill="none"
@@ -38,7 +38,7 @@ export default function DatasetInfo({
           </svg>
           Files: {dataset.resources.length}
         </span>
-        <span className="font-medium text-gray-500 inline">
+        <span className="font-medium text-secondary inline">
           <svg
             xmlns="http://www.w3.org/2000/svg"
             fill="none"
@@ -55,7 +55,7 @@ export default function DatasetInfo({
           </svg>
           Formats: {uniqueFormat(dataset.resources).join(', ')}
         </span>
-        <span className="font-medium text-gray-500 inline">
+        <span className="font-medium text-secondary inline">
           <svg
             xmlns="http://www.w3.org/2000/svg"
             fill="none"
@@ -73,7 +73,7 @@ export default function DatasetInfo({
           Created:{' '}
           {dataset.metadata_created && format(dataset.metadata_created)}
         </span>
-        <span className="font-medium text-gray-500 inline">
+        <span className="font-medium text-secondary inline">
           <svg
             xmlns="http://www.w3.org/2000/svg"
             fill="none"
@@ -93,7 +93,7 @@ export default function DatasetInfo({
         </span>
       </div>
       <div className="py-4 my-4 border-y">
-        <p className="text-sm font-normal text-stone-500 line-clamp-4">
+        <p className="text-sm font-normal text-secondary line-clamp-4">
           {dataset.notes?.replace(/<\/?[^>]+(>|$)/g, '') || 'No description'}
         </p>
       </div>
@@ -107,7 +107,7 @@ export default function DatasetInfo({
           </span>
         ))}
       </div>
-      <span className="font-medium text-gray-500 inline">
+      <span className="font-medium text-secondary inline">
         <div>Export metadata as: </div>
         <div className="flex flex-wrap gap-x-2 items-center">
           {metaFormats.map((item) => (

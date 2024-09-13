@@ -1,13 +1,13 @@
-import getConfig from "next/config";
-import Image from "next/image";
-import { format } from "timeago.js";
-import { Tag } from "@portaljs/ckan";
-import { Group } from "@portaljs/ckan";
+import getConfig from 'next/config'
+import Image from 'next/image'
+import { format } from 'timeago.js'
+import { Tag } from '@portaljs/ckan'
+import { Group } from '@portaljs/ckan'
 
 export default function GroupInfo({ group }: { group: Group }) {
   const url = group.image_display_url
     ? new URL(group.image_display_url)
-    : undefined;
+    : undefined
   return (
     <div className="flex flex-col">
       <Image
@@ -18,12 +18,12 @@ export default function GroupInfo({ group }: { group: Group }) {
           url &&
           (process.env.DOMAINS ?? []).includes(url.hostname)
             ? group.image_display_url
-            : "/images/logos/DefaultOrgLogo.svg"
+            : '/images/logos/DefaultOrgLogo.svg'
         }
         alt={`${group.name}-collection`}
       />
       <div className="flex flex-col gap-y-3 mt-8">
-        <span className="font-medium text-gray-500 inline">
+        <span className="font-medium text-secondary inline">
           <svg
             xmlns="http://www.w3.group/2000/svg"
             fill="none"
@@ -40,7 +40,7 @@ export default function GroupInfo({ group }: { group: Group }) {
           </svg>
           Packages: {group.packages ? group.packages.length : 0}
         </span>
-        <span className="font-medium text-gray-500 inline">
+        <span className="font-medium text-secondary inline">
           <svg
             xmlns="http://www.w3.group/2000/svg"
             fill="none"
@@ -59,9 +59,9 @@ export default function GroupInfo({ group }: { group: Group }) {
         </span>
       </div>
       <div className="py-4 my-4 border-y">
-        <p className="text-sm font-normal text-stone-500 line-clamp-4">
-          {group.description?.replace(/<\/?[^>]+(>|$)/g, "") ||
-            "No description"}
+        <p className="text-sm font-normal text-secondary line-clamp-4">
+          {group.description?.replace(/<\/?[^>]+(>|$)/g, '') ||
+            'No description'}
         </p>
       </div>
       <div className="flex flex-wrap gap-1">
@@ -75,5 +75,5 @@ export default function GroupInfo({ group }: { group: Group }) {
         ))}
       </div>
     </div>
-  );
+  )
 }

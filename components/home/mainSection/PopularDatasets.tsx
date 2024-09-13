@@ -10,9 +10,9 @@ export default function PopularDatasets({
   datasets: Array<Dataset>
 }) {
   return (
-    <div className="bg-white p-8 rounded-lg shadow-lg h-full">
+    <div className="bg-white p-8 shadow-lg h-full text-secondary">
       <div>
-        <div className="inline-block align-middle w-12 h-0.5 border border-darkbrown" />
+        <div className="inline-block align-middle w-12 h-0.5 border border-accent" />
         <span className="inline-block font-inter text-sm text-center pl-2">
           &nbsp; MOST RECENT DATASETS
         </span>

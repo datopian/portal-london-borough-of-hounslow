@@ -3,7 +3,7 @@ import Link from "next/link";
 export function Organizations() {
   return (
     <Link href="/organizations">
-      <div className="group bg-white p-8 rounded-lg shadow-md py-16 hover:bg-darkaccent cursor-pointer h-full">
+      <div className="group bg-white p-8 rounded-lg shadow-md py-16 hover:bg-darkaccent cursor-pointer h-full text-secondary">
         <img className="m-auto" src="/images/upload.svg" alt="Upload icon" />
         <h1 className="group-hover:text-white text-2xl uppercase font-black pt-4 font-inter text-center">
           {" "}
@@ -21,9 +21,9 @@ export function Organizations() {
 export function Groups() {
   return (
     <Link href="/groups">
-      <div className="group bg-white p-8 rounded-lg shadow-md py-16 hover:bg-darkaccent cursor-pointer h-full">
+      <div className="group bg-white border-box border-l-[6px] border-lightaccent text-secondary p-8  py-16 hover:bg-darkaccent cursor-pointer h-full">
         <img className="m-auto" src="/images/request.svg" alt="Request icon" />
-        <h1 className="group-hover:text-white text-2xl uppercase font-black text-black pt-4 font-inter text-center">
+        <h1 className="group-hover:text-white text-2xl uppercase font-black  pt-4 font-inter text-center">
           {" "}
           Groups{" "}
         </h1>
@@ -39,7 +39,7 @@ export function Groups() {
 export function FindData() {
   return (
     <Link href="/search">
-      <div className="group bg-white rounded-lg shadow-md py-20 hover:bg-darkaccent cursor-pointer h-full">
+      <div className="group bg-white border-box border-l-[6px] border-lightaccent py-20 hover:bg-darkaccent cursor-pointer h-full text-secondary">
         <img className="m-auto" src="/images/search.svg" alt="Search icon" />
         <h1 className="group-hover:text-white text-2xl uppercase font-black pt-4 font-inter text-center">
           {" "}

@@ -8,13 +8,13 @@ export default function Hero({ stats }: { stats: StatsProps }) {
     <section className="sm:grid sm:grid-rows-frontpage-hero">
       <section className="row-start-1 row-span-3 col-span-full">
         <div
-          className="bg-gradient-to-b from-[#65316c] to-gray-50 via-gray-50 flex flex-col h-full"
+          className="bg-gradient-to-b from-accent  flex flex-col h-full"
           style={{
             minHeight: "95vh",
           }}
         >
           <TopBar />
-          <div className="grid lg:grid-cols-2 mx-auto items-center grow custom-container">
+          <div className="grid lg:grid-cols-2 mx-auto items-center grow custom-container ">
             <div className="col-span-1">
               <h3 className="text-xs font-medium pb-2 uppercase tracking-widest sm:text-base lg:text-sm xl:text-base">
                 Quality Data ready to Integrate

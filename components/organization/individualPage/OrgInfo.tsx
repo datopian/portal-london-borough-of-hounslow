@@ -1,13 +1,11 @@
-import getConfig from "next/config";
-import Image from "next/image";
-import { format } from "timeago.js";
-import { Tag } from "ckan";
-import { Organization } from "ckan";
+import getConfig from 'next/config'
+import Image from 'next/image'
+import { format } from 'timeago.js'
+import { Tag } from 'ckan'
+import { Organization } from 'ckan'
 
 export default function OrgInfo({ org }: { org: Organization }) {
-  const url = org.image_display_url
-    ? new URL(org.image_display_url)
-    : undefined;
+  const url = org.image_display_url ? new URL(org.image_display_url) : undefined
   return (
     <div className="flex flex-col">
       <div>
@@ -19,13 +17,13 @@ export default function OrgInfo({ org }: { org: Organization }) {
             url &&
             getConfig().publicRuntimeConfig.DOMAINS.includes(url.hostname)
               ? org.image_display_url
-              : "/images/logos/DefaultOrgLogo.svg"
+              : '/images/logos/DefaultOrgLogo.svg'
           }
           alt={`${org.name}-collection`}
         />
       </div>
       <div className="flex flex-col gap-y-3 mt-8">
-        <span className="font-medium text-gray-500 inline">
+        <span className="font-medium text-secondary inline">
           <svg
             xmlns="http://www.w3.org/2000/svg"
             fill="none"
@@ -42,7 +40,7 @@ export default function OrgInfo({ org }: { org: Organization }) {
           </svg>
           Packages: {org.packages ? org.packages.length : 0}
         </span>
-        <span className="font-medium text-gray-500 inline">
+        <span className="font-medium text-secondary inline">
           <svg
             xmlns="http://www.w3.org/2000/svg"
             fill="none"
@@ -61,8 +59,8 @@ export default function OrgInfo({ org }: { org: Organization }) {
         </span>
       </div>
       <div className="py-4 my-4 border-y">
-        <p className="text-sm font-normal text-stone-500 line-clamp-4">
-          {org.description?.replace(/<\/?[^>]+(>|$)/g, "") || "No description"}
+        <p className="text-sm font-normal text-secondary line-clamp-4">
+          {org.description?.replace(/<\/?[^>]+(>|$)/g, '') || 'No description'}
         </p>
       </div>
       <div className="flex flex-wrap gap-1">
@@ -76,5 +74,5 @@ export default function OrgInfo({ org }: { org: Organization }) {
         ))}
       </div>
     </div>
-  );
+  )
 }

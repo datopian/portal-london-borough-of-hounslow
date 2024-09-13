@@ -88,7 +88,7 @@ export default function ResourcePage({
                 </h1>
               </div>
               <div className="flex gap-x-2 items-center custom-container py-2">
-                <span className="font-medium text-gray-500 inline">
+                <span className="font-medium text-secondary inline">
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
                     fill="none"
@@ -105,7 +105,7 @@ export default function ResourcePage({
                   </svg>
                   Created: {resource.created && format(resource.created)}
                 </span>
-                <span className="font-medium text-gray-500 inline">
+                <span className="font-medium text-secondary inline">
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
                     fill="none"
@@ -124,7 +124,7 @@ export default function ResourcePage({
                   {resource.metadata_modified &&
                     format(resource.metadata_modified)}
                 </span>
-                <span className="font-medium text-gray-500 inline">
+                <span className="font-medium text-secondary inline">
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
                     fill="none"
@@ -165,7 +165,7 @@ export default function ResourcePage({
                 </Link>
               </div>
               <div className="custom-container py-4">
-                <p className="text-stone-500">{resource.description}</p>
+                <p className="text-secondary">{resource.description}</p>
               </div>
               <div className="lg:px-8">
                 {resourceFormat == 'csv' ? (

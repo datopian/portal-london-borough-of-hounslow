@@ -33,7 +33,7 @@ describe("Dataset Page Tests", () => {
       // Verify the API Call
       cy.wait("@filter_by_org").then((interception) => {
         cy.wait(1000);
-        cy.get("h2.text-4xl.capitalize.font-bold.text-zinc-900")
+        cy.get("h2.text-4xl.capitalize.font-bold.text-secondary")
           .invoke("text")
           .then((text) => {
             expect(text.toString().toLowerCase()).to.contain(
@@ -144,7 +144,7 @@ describe("Dataset Page Tests", () => {
       cy.get('[type="checkbox"]').eq(0).check();
       cy.wait("@filter_by_org").then((interception) => {
         cy.wait(1000);
-        cy.get("h2.text-4xl.capitalize.font-bold.text-zinc-900")
+        cy.get("h2.text-4xl.capitalize.font-bold.text-secondary")
           .invoke("text")
           .then((text) => {
             expect(text.toString().toLowerCase()).to.contain(
@@ -194,7 +194,7 @@ describe("Dataset Page Tests", () => {
       cy.get('[type="checkbox"]').eq(0).check();
       cy.wait("@filter_by_org").then((interception) => {
         cy.wait(1000);
-        cy.get("h2.text-4xl.capitalize.font-bold.text-zinc-900")
+        cy.get("h2.text-4xl.capitalize.font-bold.text-secondary")
           .invoke("text")
           .then((text) => {
             expect(text.toString().toLowerCase()).to.contain(
@@ -239,4 +239,4 @@ describe("Dataset Page Tests", () => {
   });
 });
 
-export {};
+export { };

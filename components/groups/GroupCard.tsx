@@ -16,7 +16,7 @@ export default function GroupCard({
 }: GroupCardProps) {
   const url = image_display_url ? new URL(image_display_url) : undefined;
   return (
-    <div className="bg-white p-8 col-span-3 rounded-lg h-full shadow-lg">
+    <div className="border-box border-l-[6px] border-lightaccent bg-white  p-8 col-span-3 h-full text-secondary">
       <Image
         src={
           image_display_url &&

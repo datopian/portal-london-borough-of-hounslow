@@ -83,7 +83,7 @@ const Footer: React.FC = () => {
 
   return (
     <footer className="bg-white">
-      <div className="custom-container flex flex-col flex-wrap py-10 mx-auto md:items-center lg:items-start md:flex-row md:flex-nowrap">
+      <div className="custom-container flex flex-col flex-wrap py-10 mx-auto md:items-center lg:items-start md:flex-row md:flex-nowrap text-secondary">
         <div className="justify-between w-full text-center md:text-left lg:flex">
           <div className="w-full lg:w-1/3 md:w-1/2">
             <h2 className="mt-4 mb-4 font-inter font-black">ABOUT DATOPIAN</h2>

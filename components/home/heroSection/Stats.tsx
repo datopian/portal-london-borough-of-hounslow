@@ -53,7 +53,7 @@ const Stats: React.FC<StatsProps> = ({
   ];
 
   return (
-    <div className="flex flex-col sm:flex-row align-center justify-center sm:justify-start px-2 bg-transparent text-accent border border-white border-opacity-30 rounded-md my-4 py-10 gap-x-5">
+    <div className="flex flex-col sm:flex-row align-center justify-center sm:justify-start px-2 bg-transparent text-accent border-opacity-30 rounded-md my-4 py-10 gap-x-5">
       {stats.map((item) => (
         <div key={item.name} className="flex flex-col sm:flex-row mr-2">
           <div className="flex justify-center">{item.icon}</div>

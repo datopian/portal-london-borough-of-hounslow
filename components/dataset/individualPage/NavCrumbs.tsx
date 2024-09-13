@@ -9,7 +9,7 @@ export default function DatasetNavCrumbs({
 }) {
   return (
     <nav>
-      <ul className="flex gap-x-8 mx-auto custom-container">
+      <ul className="flex gap-x-8 pt-6 mx-auto custom-container">
         <li className="flex gap-x-2 align-center flex-col sm:flex-row">
           <Link
             href="/search"

@@ -10,7 +10,7 @@ export default function SearchHero({
   onChange: Dispatch<SetStateAction<string>>;
 }) {
   return (
-    <div className="grid md:grid-cols-2 mx-auto items-center grow custom-container grow">
+    <div className="grid md:grid-cols-2 mx-auto items-center grow custom-container grow pt-16">
       <div className="col-span-1">
         <h1 className="text-5xl font-black text-white">{title}</h1>
         <input
