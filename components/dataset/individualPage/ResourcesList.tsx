@@ -1,11 +1,11 @@
-import { Resource } from "@portaljs/ckan";
-import ResourceCard from "../_shared/ResourceCard";
-import Link from "next/link";
+import { Resource } from '@portaljs/ckan'
+import ResourceCard from '../_shared/ResourceCard'
+import Link from 'next/link'
 
 interface ResourcesListProps {
-  resources: Array<Resource>;
-  orgName: string;
-  datasetName: string;
+  resources: Array<Resource>
+  orgName: string
+  datasetName: string
 }
 export default function ResourcesList({
   resources,
@@ -23,10 +23,10 @@ export default function ResourcesList({
             <ResourceCard resource={resource} />
             <div className="col-span-5 place-content-start flex flex-col gap-0">
               <h4 className="m-auto md:m-0 font-semibold text-lg text-zinc-900 leading-tight line-clamp-3 pr-5">
-                {resource.name || "No title"}
+                {resource.name || 'No title'}
               </h4>
               <p className="text-sm font-normal text-stone-500 line-clamp-4">
-                {resource.description || "No description"}
+                {resource.description || 'No description'}
               </p>
             </div>
           </article>
@@ -34,7 +34,7 @@ export default function ResourcesList({
             {resource.url && (
               <Link
                 href={resource.url}
-                className="bg-accent h-auto py-2 px-4 text-sm text-gray-800 rounded-xl font-roboto font-bold hover:bg-cyan-800 text-white duration-150 flex items-center gap-1"
+                className="bg-accent h-auto py-2 px-4 text-sm text-gray-800 rounded-xl font-inter font-bold hover:bg-cyan-800 text-white duration-150 flex items-center gap-1"
               >
                 Download
                 <svg
@@ -53,14 +53,14 @@ export default function ResourcesList({
                 </svg>
               </Link>
             )}
-            {["csv", "pdf", "xlsx", "xls"].includes(
+            {['csv', 'pdf', 'xlsx', 'xls'].includes(
               resource.format.toLowerCase()
             ) && (
               <Link
                 href={`/${orgName}/${datasetName}/r/${resource.id}`}
-                className="bg-lightaccent h-auto py-2 px-4 text-sm text-white rounded-xl font-roboto font-bold hover:bg-accent duration-150 flex items-center gap-1"
+                className="bg-lightaccent h-auto py-2 px-4 text-sm text-white rounded-xl font-inter font-bold hover:bg-accent duration-150 flex items-center gap-1"
               >
-                Preview{" "}
+                Preview{' '}
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   fill="none"
@@ -86,5 +86,5 @@ export default function ResourcesList({
         </div>
       ))}
     </div>
-  );
+  )
 }

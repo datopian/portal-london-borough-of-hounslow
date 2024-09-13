@@ -1,70 +1,70 @@
-import { GetStaticProps } from "next";
-import { format } from "timeago.js";
-import ResourceCard from "@/components/dataset/_shared/ResourceCard";
-import Layout from "@/components/_shared/Layout";
-import TopBar from "@/components/_shared/TopBar";
-import { Resource } from "@portaljs/ckan";
-import { CKAN } from "@portaljs/ckan";
-import dynamic from "next/dynamic";
-import Link from "next/link";
+import { GetStaticProps } from 'next'
+import { format } from 'timeago.js'
+import ResourceCard from '@/components/dataset/_shared/ResourceCard'
+import Layout from '@/components/_shared/Layout'
+import TopBar from '@/components/_shared/TopBar'
+import { Resource } from '@portaljs/ckan'
+import { CKAN } from '@portaljs/ckan'
+import dynamic from 'next/dynamic'
+import Link from 'next/link'
 
 const PdfViewer = dynamic(
-  () => import("@portaljs/components").then((mod) => mod.PdfViewer),
+  () => import('@portaljs/components').then((mod) => mod.PdfViewer),
   { ssr: false }
-);
+)
 
 const ExcelViewer = dynamic(
-  () => import("@portaljs/components").then((mod) => mod.Excel),
+  () => import('@portaljs/components').then((mod) => mod.Excel),
   { ssr: false }
-);
+)
 
 const RawCsvViewer = dynamic(
-  () => import("@portaljs/components").then((mod) => mod.FlatUiTable),
+  () => import('@portaljs/components').then((mod) => mod.FlatUiTable),
   { ssr: false }
-);
+)
 
 const MapViewer = dynamic(
-  () => import("@portaljs/components").then((mod) => mod.Map),
+  () => import('@portaljs/components').then((mod) => mod.Map),
   { ssr: false }
-);
+)
 
 export const getServerSideProps: GetStaticProps = async (context) => {
-  const DMS = process.env.NEXT_PUBLIC_DMS;
-  const ckan = new CKAN(DMS);
+  const DMS = process.env.NEXT_PUBLIC_DMS
+  const ckan = new CKAN(DMS)
   try {
-    const resourceId = context.params?.resourceId;
+    const resourceId = context.params?.resourceId
     if (!resourceId) {
-      console.log("[!] resourceId not found");
+      console.log('[!] resourceId not found')
       return {
         notFound: true,
-      };
+      }
     }
 
-    const resource = await ckan.getResourceMetadata(resourceId as string);
+    const resource = await ckan.getResourceMetadata(resourceId as string)
     if (!resource) {
-      console.log("[!] Resource metadata not found");
+      console.log('[!] Resource metadata not found')
       return {
         notFound: true,
-      };
+      }
     }
 
     return {
       props: { resource },
-    };
+    }
   } catch (e) {
-    console.log(e);
+    console.log(e)
     return {
       notFound: true,
-    };
+    }
   }
-};
+}
 
 export default function ResourcePage({
   resource,
 }: {
-  resource: Resource;
+  resource: Resource
 }): JSX.Element {
-  const resourceFormat = resource.format.toLowerCase();
+  const resourceFormat = resource.format.toLowerCase()
   return (
     <>
       <Layout>
@@ -73,7 +73,7 @@ export default function ResourcePage({
             <div
               className="bg-cover h-full bg-center bg-no-repeat bg-accent flex flex-col"
               style={{
-                marginBottom: "4rem",
+                marginBottom: '4rem',
               }}
             >
               <TopBar />
@@ -120,7 +120,7 @@ export default function ResourcePage({
                       d="M12 6v6h4.5m4.5 0a9 9 0 11-18 0 9 9 0 0118 0z"
                     />
                   </svg>
-                  Updated:{" "}
+                  Updated:{' '}
                   {resource.metadata_modified &&
                     format(resource.metadata_modified)}
                 </span>
@@ -139,13 +139,13 @@ export default function ResourcePage({
                       d="M20.25 6.375c0 2.278-3.694 4.125-8.25 4.125S3.75 8.653 3.75 6.375m16.5 0c0-2.278-3.694-4.125-8.25-4.125S3.75 4.097 3.75 6.375m16.5 0v11.25c0 2.278-3.694 4.125-8.25 4.125s-8.25-1.847-8.25-4.125V6.375m16.5 0v3.75m-16.5-3.75v3.75m16.5 0v3.75C20.25 16.153 16.556 18 12 18s-8.25-1.847-8.25-4.125v-3.75m16.5 0c0 2.278-3.694 4.125-8.25 4.125s-8.25-1.847-8.25-4.125"
                     />
                   </svg>
-                  Size: {resource.size || "N/A"}
+                  Size: {resource.size || 'N/A'}
                 </span>
               </div>
               <div className="custom-container py-4">
                 <Link
                   href={resource.url}
-                  className="bg-accent h-auto py-2 px-4 text-sm text-gray-800 rounded-xl font-roboto font-bold hover:bg-cyan-800 text-white duration-150 flex items-center gap-1 w-fit"
+                  className="bg-accent h-auto py-2 px-4 text-sm text-gray-800 rounded-xl font-inter font-bold hover:bg-cyan-800 text-white duration-150 flex items-center gap-1 w-fit"
                 >
                   Download
                   <svg
@@ -168,24 +168,24 @@ export default function ResourcePage({
                 <p className="text-stone-500">{resource.description}</p>
               </div>
               <div className="lg:px-8">
-                {resourceFormat == "csv" ? (
+                {resourceFormat == 'csv' ? (
                   <div>
                     <RawCsvViewer url={resource.url} />
                   </div>
                 ) : null}
-                {resourceFormat == "pdf" && (
+                {resourceFormat == 'pdf' && (
                   <PdfViewer
                     layout={true}
                     url={resource.url}
                     parentClassName="h-[900px]"
                   />
                 )}
-                {["xlsx", "xls"].includes(resourceFormat) && (
+                {['xlsx', 'xls'].includes(resourceFormat) && (
                   <ExcelViewer url={resource.url} />
                 )}
-                {resourceFormat == "geojson" && (
+                {resourceFormat == 'geojson' && (
                   <MapViewer
-                    layers={[{ data: resource.url, name: "Geojson" }]}
+                    layers={[{ data: resource.url, name: 'Geojson' }]}
                     title={resource.name}
                   />
                 )}
@@ -195,5 +195,5 @@ export default function ResourcePage({
         </div>
       </Layout>
     </>
-  );
+  )
 }

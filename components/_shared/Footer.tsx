@@ -1,25 +1,25 @@
 interface IconProps {
-  className: string;
-  "aria-hidden": boolean;
+  className: string
+  'aria-hidden': boolean
 }
 
 const Footer: React.FC = () => {
   const navigation = {
     about: [
-      { name: "About Us", href: "https://www.datopian.com/about/" },
+      { name: 'About Us', href: 'https://www.datopian.com/about/' },
       {
-        name: "DataHub Open Data",
-        href: "https://datahub.io/opendata",
+        name: 'DataHub Open Data',
+        href: 'https://datahub.io/opendata',
       },
     ],
     useful: [
-      { name: "Datasets", href: "/search" },
-      { name: "Groups", href: "/groups" },
+      { name: 'Datasets', href: '/search' },
+      { name: 'Groups', href: '/groups' },
     ],
     social: [
       {
-        name: "facebook",
-        href: "https://web.facebook.com/datopianltd/",
+        name: 'facebook',
+        href: 'https://web.facebook.com/datopianltd/',
         // eslint-disable-next-line
         icon: (props: IconProps) => (
           <svg fill="currentColor" viewBox="0 0 64 64" {...props}>
@@ -32,8 +32,8 @@ const Footer: React.FC = () => {
         ),
       },
       {
-        name: "twitter",
-        href: "https://twitter.com/datopian",
+        name: 'twitter',
+        href: 'https://twitter.com/datopian',
         // eslint-disable-next-line
         icon: (props: IconProps) => (
           <svg fill="currentColor" viewBox="0 0 64 64" {...props}>
@@ -46,8 +46,8 @@ const Footer: React.FC = () => {
         ),
       },
       {
-        name: "linkedin",
-        href: "https://www.linkedin.com/company/datopian",
+        name: 'linkedin',
+        href: 'https://www.linkedin.com/company/datopian',
         // eslint-disable-next-line
         icon: (props: IconProps) => (
           <svg fill="currentColor" viewBox="0 0 64 64" {...props}>
@@ -62,8 +62,8 @@ const Footer: React.FC = () => {
         ),
       },
       {
-        name: "email",
-        href: "mailto:hello@datopian.com",
+        name: 'email',
+        href: 'mailto:hello@datopian.com',
         // eslint-disable-next-line
         icon: (props: IconProps) => (
           <svg fill="currentColor" viewBox="0 0 64 64" {...props}>
@@ -79,20 +79,20 @@ const Footer: React.FC = () => {
         ),
       },
     ],
-  };
+  }
 
   return (
     <footer className="bg-white">
       <div className="custom-container flex flex-col flex-wrap py-10 mx-auto md:items-center lg:items-start md:flex-row md:flex-nowrap">
         <div className="justify-between w-full text-center md:text-left lg:flex">
           <div className="w-full lg:w-1/3 md:w-1/2">
-            <h2 className="mt-4 mb-4 font-roboto font-black">ABOUT DATOPIAN</h2>
+            <h2 className="mt-4 mb-4 font-inter font-black">ABOUT DATOPIAN</h2>
             <ul className="space-y-4 text-sm list-none">
               {navigation.about.map((item) => (
                 <li key={item.name}>
                   <a
                     href={item.href}
-                    className="font-roboto font-normal hover:text-gray-400"
+                    className="font-inter font-normal hover:text-gray-400"
                   >
                     {item.name}
                   </a>
@@ -102,13 +102,13 @@ const Footer: React.FC = () => {
           </div>
 
           <div className="w-full lg:w-1/3 md:w-1/2">
-            <h2 className="mt-4 mb-4 font-roboto font-black">USEFUL LINKS</h2>
+            <h2 className="mt-4 mb-4 font-inter font-black">USEFUL LINKS</h2>
             <ul className="space-y-4 text-sm list-none">
               {navigation.useful.map((item) => (
                 <li key={item.name}>
                   <a
                     href={item.href}
-                    className="font-roboto font-normal hover:text-gray-400"
+                    className="font-inter font-normal hover:text-gray-400"
                   >
                     {item.name}
                   </a>
@@ -118,7 +118,7 @@ const Footer: React.FC = () => {
           </div>
         </div>
         <div className="w-full md:w-1/2 flex flex-col justify-between text-center md:text-left">
-          <h2 className="mt-4 mb-4 font-roboto font-black">
+          <h2 className="mt-4 mb-4 font-inter font-black">
             STAY UP TO DATE WITH THE NEWS
           </h2>
           <div className="flex mt-5 space-x-5 justify-center md:justify-start">
@@ -142,7 +142,7 @@ const Footer: React.FC = () => {
         </a>
       </div>
     </footer>
-  );
-};
+  )
+}
 
-export default Footer;
+export default Footer

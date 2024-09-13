@@ -1,19 +1,19 @@
-import Link from "next/link";
-import { Dataset } from "@portaljs/ckan";
+import Link from 'next/link'
+import { Dataset } from '@portaljs/ckan'
 
-type DatasetLinkProps = Pick<Dataset, "title" | "metadata_modified">;
+type DatasetLinkProps = Pick<Dataset, 'title' | 'metadata_modified'>
 
 //  Name is "PopularDatasets" but content is "Recent Datasets" - Parametrize this
 export default function PopularDatasets({
   datasets,
 }: {
-  datasets: Array<Dataset>;
+  datasets: Array<Dataset>
 }) {
   return (
     <div className="bg-white p-8 rounded-lg shadow-lg h-full">
       <div>
         <div className="inline-block align-middle w-12 h-0.5 border border-darkbrown" />
-        <span className="inline-block font-roboto text-sm text-center pl-2">
+        <span className="inline-block font-inter text-sm text-center pl-2">
           &nbsp; MOST RECENT DATASETS
         </span>
         <h1 className="font-inter font-black text-4xl mt-6">Highlights</h1>
@@ -34,14 +34,14 @@ export default function PopularDatasets({
         </div>
       </div>
     </div>
-  );
+  )
 }
 
 function DatasetLink({ title, metadata_modified }: DatasetLinkProps) {
   return (
     <div>
       <h3 className="font-inter font-semibold text-xl">{title}</h3>
-      <span className="font-roboto font-light text-xs flex items-center gap-1">
+      <span className="font-inter font-light text-xs flex items-center gap-1">
         <svg
           xmlns="http://www.w3.org/2000/svg"
           fill="none"
@@ -56,15 +56,15 @@ function DatasetLink({ title, metadata_modified }: DatasetLinkProps) {
             d="M16.023 9.348h4.992v-.001M2.985 19.644v-4.992m0 0h4.992m-4.993 0l3.181 3.183a8.25 8.25 0 0013.803-3.7M4.031 9.865a8.25 8.25 0 0113.803-3.7l3.181 3.182m0-4.991v4.99"
           />
         </svg>
-        Last updated:{" "}
+        Last updated:{' '}
         {metadata_modified
-          ? new Intl.DateTimeFormat("en-GB", {
-              year: "numeric",
-              month: "long",
-              day: "numeric",
+          ? new Intl.DateTimeFormat('en-GB', {
+              year: 'numeric',
+              month: 'long',
+              day: 'numeric',
             }).format(new Date(metadata_modified))
-          : ""}
+          : ''}
       </span>
     </div>
-  );
+  )
 }

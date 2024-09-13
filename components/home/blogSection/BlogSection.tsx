@@ -1,11 +1,11 @@
-import ArticleCard from "./ArticleCard";
+import ArticleCard from './ArticleCard'
 
 export default function BlogSection() {
   return (
     <section className="custom-container homepage-padding">
       <div className="my-4">
         <div className="inline-block align-middle w-12 h-0.5  border border-darkbrown" />
-        <div className="inline-block font-roboto text-sm text-center">
+        <div className="inline-block font-inter text-sm text-center">
           &nbsp; BLOG
         </div>
       </div>
@@ -24,5 +24,5 @@ export default function BlogSection() {
         </section>
       </section>
     </section>
-  );
+  )
 }

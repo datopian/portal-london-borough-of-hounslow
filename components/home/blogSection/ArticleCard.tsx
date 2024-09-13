@@ -6,7 +6,7 @@ export default function ArticleCard() {
     >
       <div
         className="mx-auto flex flex-col justify-between h-full"
-        style={{ width: "clamp(90%, 80%, 300px)" }}
+        style={{ width: 'clamp(90%, 80%, 300px)' }}
       >
         <p className="text-xs font-inter font-black tracking-widest text-white">
           ARTICLE
@@ -30,7 +30,7 @@ export default function ArticleCard() {
               src="https://www.gravatar.com/avatar/36661def37f62e4130670ab75e06465a?d=https%3A%2F%2Ftesting.datahub.io%2Fstatic%2Fimg%2Flogo-cube03.png"
               alt="author"
             />
-            <div className="ml-4 text-white font-roboto">
+            <div className="ml-4 text-white font-inter">
               <p className="font-bold text-sm">Rufus Pollock</p>
               <p className="text-xs text-accent -mt-2">
                 May 8, 2020 &nbsp;
@@ -42,5 +42,5 @@ export default function ArticleCard() {
         </div>
       </div>
     </div>
-  );
+  )
 }
