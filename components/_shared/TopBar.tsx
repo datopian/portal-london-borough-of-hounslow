@@ -9,7 +9,7 @@ export default function Example() {
   return (
     <header className="bg-white ">
       <nav
-        className="mx-auto flex max-w-7xl lg:px-8 items-center justify-between py-6 h-[72px] sm:h-[108px] md:h-[139.6px] lg:h-[159.59px]"
+        className="mx-auto flex max-w-6xl items-center justify-between py-6 h-[72px] sm:h-[108px] md:h-[139.6px] lg:h-[159.59px]"
         aria-label="Global"
       >
         <div className="flex items-center gap-x-12">

@@ -1,12 +1,12 @@
-import getConfig from "next/config";
-import Image from "next/image";
-import Link from "next/link";
-import { Group } from "@portaljs/ckan";
+import getConfig from 'next/config'
+import Image from 'next/image'
+import Link from 'next/link'
+import { Group } from '@portaljs/ckan'
 
 type GroupCardProps = Pick<
   Group,
-  "display_name" | "image_display_url" | "description" | "name"
->;
+  'display_name' | 'image_display_url' | 'description' | 'name'
+>
 
 export default function GroupCard({
   display_name,
@@ -14,30 +14,30 @@ export default function GroupCard({
   description,
   name,
 }: GroupCardProps) {
-  const url = image_display_url ? new URL(image_display_url) : undefined;
+  const url = image_display_url ? new URL(image_display_url) : undefined
   return (
-    <div className="border-box border-l-[6px] border-lightaccent bg-white  p-8 col-span-3 h-full text-secondary">
+    <div className="border-box border-l-[6px] border-lightaccent bg-white p-8 col-span-3 h-full text-secondary grid grid-rows-4 group hover:underline hover:cursor-pointer">
       <Image
         src={
           image_display_url &&
           url &&
           (process.env.DOMAINS ?? []).includes(url.hostname)
             ? image_display_url
-            : "/images/logos/DefaultOrgLogo.svg"
+            : '/images/logos/DefaultOrgLogo.svg'
         }
         alt={`${name}-collection`}
         width="43"
         height="43"
       ></Image>
-      <h3 className="font-inter font-semibold text-lg mt-4">{display_name}</h3>
-      <p className="font-inter font-medium text-sm mt-1 mb-6 line-clamp-2">
+      <h3 className="font-inter font-[600] text-2xl">{display_name}</h3>
+      <p className="font-inter font-medium text-lg mt-1 line-clamp-2 mb-1 ">
         {description}
       </p>
-      <Link href={`/groups/${name}`}>
-        <span className="font-inter font-medium text-sm text-accent cursor-pointer">
+      <Link href={`/groups/${name}`} className='mt-auto'>
+        <span className="font-inter font-[600] text-lg text-accent cursor-pointer">
           View -&gt;
         </span>
       </Link>
     </div>
-  );
+  )
 }

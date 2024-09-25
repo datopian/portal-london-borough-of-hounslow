@@ -13,10 +13,10 @@ export default function PopularDatasets({
     <div className="bg-white p-8 shadow-lg h-full text-secondary">
       <div>
         <div className="inline-block align-middle w-12 h-0.5 border border-accent" />
-        <span className="inline-block font-inter text-sm text-center pl-2">
-          &nbsp; MOST RECENT DATASETS
+        <span className="inline-block font-inter text-lg font-[600] text-center pl-2">
+          &nbsp; Most recent datasets
         </span>
-        <h1 className="font-inter font-black text-4xl mt-6">Highlights</h1>
+        <h1 className="font-inter font-[600] text-4xl mt-6">Highlights</h1>
         <div className="flex flex-col">
           {datasets.map((dataset, index) => (
             <Link
@@ -39,16 +39,16 @@ export default function PopularDatasets({
 
 function DatasetLink({ title, metadata_modified }: DatasetLinkProps) {
   return (
-    <div>
-      <h3 className="font-inter font-semibold text-xl">{title}</h3>
-      <span className="font-inter font-light text-xs flex items-center gap-1">
+    <div className='group'>
+      <h3 className="font-inter font-[600] text-2xl group-hover:underline mb-2">{title}</h3>
+      <span className="font-inter text-lg flex items-center gap-1">
         <svg
           xmlns="http://www.w3.org/2000/svg"
           fill="none"
           viewBox="0 0 24 24"
           strokeWidth={1.5}
           stroke="currentColor"
-          className="w-3 h-3"
+          className="w-4 h-4"
         >
           <path
             strokeLinecap="round"

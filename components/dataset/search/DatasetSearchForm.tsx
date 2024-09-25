@@ -45,7 +45,7 @@ export default function DatasetSearchForm({
       }}
     >
       <div className="mx-auto" style={{ width: "min(1100px, 95vw)" }}>
-        <Form className="min-h-[80px] flex flex-col lg:flex-row bg-white px-5 py-3 rounded-xl">
+        <Form className="min-h-[80px] flex flex-col lg:flex-row bg-white px-5 py-3 rounded-xl border-box border-black">
           <Field
             type="text"
             placeholder="Search Datasets"

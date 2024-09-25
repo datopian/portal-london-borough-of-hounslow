@@ -12,6 +12,16 @@ module.exports = {
   safelist: ["bg-red-500", "text-3xl", "lg:text-4xl"],
   theme: {
     extend: {
+      animation: {
+        'bounce-right': 'bounce-right 1s ease-in-out forwards',
+      },
+      keyframes: {
+        'bounce-right': {
+          '0%': { transform: 'translateX(0)' },
+          '50%': { transform: 'translateX(7px)' },
+          '100%': { transform: 'translateX(0)' },
+        },
+      },
       colors: {
         accent: "#652F6C",
         lightaccent: "#e0d4fd",
@@ -27,7 +37,7 @@ module.exports = {
           dark: colors.gray[300],
         },
         secondary: {
-          DEFAULT: '#333F49',
+          DEFAULT: '#242424',
           dark: "",
         },
       },

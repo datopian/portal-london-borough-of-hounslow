@@ -1,55 +1,100 @@
-import Link from "next/link";
+import Link from 'next/link'
 
 export function Organizations() {
   return (
     <Link href="/organizations">
-      <div className="group bg-white p-8 rounded-lg shadow-md py-16 hover:bg-darkaccent cursor-pointer h-full text-secondary">
+      <div className="group bg-white p-8 rounded-lg shadow-md py-16 hover:bg-lightaccent cursor-pointer h-full text-secondary">
         <img className="m-auto" src="/images/upload.svg" alt="Upload icon" />
         <h1 className="group-hover:text-white text-2xl uppercase font-black pt-4 font-inter text-center">
-          {" "}
-          Organizations{" "}
+          {' '}
+          Organizations{' '}
         </h1>
-        <p className="group-hover:text-white text-center text-black font-sans pt-2">
-          {" "}
+        <p className="hidden group-hover:text-white text-center text-black font-sans pt-2">
+          {' '}
           See publisher organizations <br /> available on Portal.
         </p>
       </div>
     </Link>
-  );
+  )
 }
 
-export function Groups() {
+export function Groups2() {
   return (
     <Link href="/groups">
-      <div className="group bg-white border-box border-l-[6px] border-lightaccent text-secondary p-8  py-16 hover:bg-darkaccent cursor-pointer h-full">
+      <div className="group bg-white border-box border-l-[6px] border-lightaccent text-secondary py-3 cursor-pointer h-[198px]">
         <img className="m-auto" src="/images/request.svg" alt="Request icon" />
-        <h1 className="group-hover:text-white text-2xl uppercase font-black  pt-4 font-inter text-center">
-          {" "}
-          Groups{" "}
+        <h1 className="group-hover:underline text-2xl font-[600] pt-4 font-inter text-center">
+          {' '}
+          Groups{' '}
         </h1>
-        <p className="group-hover:text-white text-center text-black font-inter pt-2">
-          {" "}
+        <p className=" hidden group-hover:underline text-center text-lg font-normal font-inter pt-2">
+          {' '}
           Browse datasets <br /> by categories.
         </p>
       </div>
     </Link>
-  );
+  )
 }
+
+export function Groups() {
+  return (
+    <Link href="/search">
+      <div className="group bg-white flex items-center border-box border-l-[6px] border-lightaccent pl-3 cursor-pointer text-secondary h-full max-h-[94.17px]">
+        <h1 className="group-hover:underline text-lg font-[600] font-inter text-center">
+          {' '}
+          Groups{' '}
+        </h1>
+        <p className="hidden group-hover:underline text-center font-inter text-lg font-normal pt-2">
+          {' '}
+          Discover datasets and gain <br /> insights from data.
+        </p>
+        <div className="bg-accent group-hover:bg-lightaccent transition h-full w-[55px] ml-auto flex items-center justify-center">
+          <div className="w-7 h-7  flex justify-center items-center group-hover:animate-[bounce-right_0.5s_ease-in-out_1] text-white group-hover:text-secondary motion-reduced">
+          <svg width="48" height="55" viewBox="0 0 48 55" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+<path d="M45.6135 13.9048C41.903 5.92553 34.1213 0.619106 25.3382 0.0796798L24.4519 0L23.6678 0.0197838C20.9584 0.119247 18.3026 0.805691 15.885 2.0332C9.45671 5.24707 5.40611 11.826 5.42916 19.0128V22.3822L0.129285 31.2161C-0.0387864 31.4955 -0.0431424 31.844 0.117124 32.1278C0.277754 32.4113 0.578504 32.5872 0.904302 32.5872H6.57063L6.02159 40.7434C5.60068 43.157 7.19119 45.4625 9.59647 45.9269C9.65618 45.9386 9.71644 45.9442 9.77779 45.9442C9.81046 45.9442 9.84331 45.9426 9.87562 45.9387L15.3837 45.3414V53.4007C15.3837 53.9011 15.7892 54.3055 16.2887 54.3055H38.0074C38.5069 54.3055 38.9122 53.9011 38.9122 53.4007V44.4076L45.9845 26.9352C47.5387 22.7051 47.4058 18.039 45.6135 13.9048ZM44.2934 26.2916L37.1689 43.8987C37.119 44.0281 37.0998 44.1671 37.1135 44.3043C37.1135 44.3234 37.1023 44.3395 37.1023 44.3588V52.4955H17.1934V44.3515C17.1934 44.3323 17.184 44.3163 17.1827 44.2972C17.1822 44.2782 17.1909 44.2573 17.188 44.2353C17.1767 44.1811 17.1606 44.1275 17.1383 44.0765C17.1296 44.042 17.1188 44.0083 17.106 43.9751C17.0671 43.8876 17.0143 43.8072 16.949 43.7371C16.9419 43.7288 16.9384 43.7173 16.9312 43.7088L16.9154 43.6956C16.7261 43.5023 16.4598 43.4064 16.1912 43.4338L9.82298 44.1234C8.41761 43.7698 7.53605 42.3773 7.81665 40.9558L8.4412 31.743C8.47587 31.2441 8.0998 30.8119 7.60139 30.7769C7.52734 30.772 2.50534 30.7769 2.50534 30.7769L7.11278 23.0961C7.12077 23.0766 7.12803 23.0572 7.13366 23.0374C7.15961 22.9832 7.17994 22.9264 7.19428 22.8679C7.21243 22.8087 7.22423 22.7485 7.23058 22.687C7.23058 22.6661 7.24219 22.6481 7.24219 22.6263V19.0128C7.21769 12.509 10.8811 6.55244 16.697 3.64022C18.8843 2.53033 21.286 1.90887 23.7373 1.81884H24.4537C32.8553 2.05824 40.4031 7.0169 43.9586 14.6329C45.5596 18.3327 45.6794 22.5056 44.2934 26.2916Z" fill="currentColor"/>
+<path d="M24.4322 4.53372C20.4335 4.53881 16.7106 6.57236 14.545 9.9338C12.3797 13.2949 12.067 17.5253 13.715 21.1686V21.179L13.721 21.1968C13.7432 21.232 13.7677 21.2656 13.7944 21.297C13.847 21.4166 13.9406 21.5126 14.059 21.5683C14.1071 21.6044 14.159 21.6344 14.2134 21.6591C14.2768 21.6788 14.3414 21.6916 14.4075 21.6979C14.4539 21.7117 14.502 21.7217 14.55 21.7277H17.6629C17.6903 21.7233 17.717 21.7179 17.7439 21.7117C17.8054 21.7059 17.8656 21.6934 17.9245 21.6752C17.9827 21.6582 18.0395 21.6346 18.0927 21.6059C18.119 21.5964 18.1441 21.5861 18.1689 21.5738C18.1933 21.5578 18.206 21.532 18.2287 21.5139C18.2766 21.4752 18.3201 21.4309 18.3592 21.3828C18.3935 21.3393 18.4238 21.2924 18.4497 21.2429C18.5042 21.1376 18.5374 21.0236 18.5488 20.9064C18.5574 20.879 18.5635 20.8508 18.5681 20.8223C18.5642 20.7951 18.5588 20.7684 18.5517 20.7412C18.5465 20.6799 18.5341 20.6194 18.5154 20.5604C18.4987 20.5018 18.4753 20.4448 18.4461 20.3916C18.437 20.3655 18.4261 20.3403 18.4143 20.3156C16.5759 17.5556 16.8503 13.8985 19.0801 11.4439C21.3097 8.98926 24.923 8.36579 27.8463 9.93126C30.7696 11.4965 32.2539 14.8498 31.4468 18.0662C30.6396 21.2824 27.7483 23.5378 24.4322 23.5376C23.9322 23.5376 23.5269 23.9429 23.5269 24.4422V36.2067C23.5269 36.7071 23.9322 37.1119 24.4322 37.1119H28.0518C28.5516 37.1119 28.9571 36.7071 28.9571 36.2067V27.1466C34.1328 24.9915 37.067 19.4825 35.9667 13.9848C34.8672 8.48722 30.0383 4.531 24.4322 4.53372ZM27.7514 25.6795C27.7427 25.6795 27.7363 25.6904 27.7278 25.6935C27.6673 25.7204 27.6104 25.754 27.5577 25.7946C27.5122 25.8209 27.4691 25.8509 27.429 25.885C27.3907 25.9278 27.3562 25.9736 27.3274 26.0231C27.2904 26.0683 27.2582 26.1151 27.2305 26.1658C27.2138 26.2148 27.2002 26.2645 27.1913 26.3157C27.1713 26.3783 27.1582 26.4437 27.1524 26.5094C27.1524 26.5195 27.1468 26.5266 27.1468 26.5368V35.3017H25.337V25.296C29.2609 24.9198 32.4948 22.0571 33.344 18.2076C34.1935 14.3585 32.4645 10.4008 29.0631 8.40881C25.6617 6.41645 21.3641 6.84425 18.4216 9.46733C15.48 12.091 14.5647 16.3116 16.155 19.9179H15.1667C13.6896 16.1401 14.6521 11.8438 17.6007 9.05786C20.5488 6.27179 24.8927 5.55413 28.5808 7.24229C32.2695 8.93063 34.5645 12.6881 34.3813 16.7403C34.1998 20.7933 31.5764 24.3292 27.7514 25.6795Z" fill="currentColor"/>
+<path d="M28.0522 38.9214H24.4327C23.9326 38.9214 23.5273 39.3266 23.5273 39.8266V43.4463C23.5273 43.9465 23.9326 44.3515 24.4327 44.3515H28.0522C28.552 44.3515 28.9575 43.9465 28.9575 43.4463V39.8266C28.9575 39.3266 28.552 38.9214 28.0522 38.9214ZM27.1472 42.5412H25.3375V40.7314H27.1472V42.5412Z" fill="currentColor"/>
+</svg>
+
+          </div>
+        </div>
+      </div>
+    </Link>
+  )
+}
+
 
 export function FindData() {
   return (
     <Link href="/search">
-      <div className="group bg-white border-box border-l-[6px] border-lightaccent py-20 hover:bg-darkaccent cursor-pointer h-full text-secondary">
-        <img className="m-auto" src="/images/search.svg" alt="Search icon" />
-        <h1 className="group-hover:text-white text-2xl uppercase font-black pt-4 font-inter text-center">
-          {" "}
-          Find data{" "}
+      <div className="group bg-white flex items-center border-box border-l-[6px] border-lightaccent pl-3 cursor-pointer text-secondary h-full max-h-[94.17px]">
+        <h1 className="group-hover:underline text-lg font-[600] font-inter text-center">
+          {' '}
+          Find data{' '}
         </h1>
-        <p className="group-hover:text-white text-center font-inter pt-2">
-          {" "}
+        <p className="hidden group-hover:underline text-center font-inter text-lg font-normal pt-2">
+          {' '}
           Discover datasets and gain <br /> insights from data.
         </p>
+        <div className="bg-accent group-hover:bg-lightaccent transition h-full w-[55px] ml-auto flex items-center justify-center">
+          <div className="w-7 h-7  flex justify-center items-center group-hover:animate-[bounce-right_0.5s_ease-in-out_1] text-white group-hover:text-secondary motion-reduced">
+            <svg
+              width="50"
+              height="50"
+              viewBox="0 0 50 50"
+              fill="currentColor"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M20.6054 40.8045C9.45038 40.8045 0.375 31.7356 0.375 20.5897C0.375 9.44388 9.45038 0.375 20.6054 0.375C31.7605 0.375 40.8359 9.44388 40.8359 20.5897C40.8359 31.7356 31.7605 40.8045 20.6054 40.8045ZM20.6054 3.52827C11.1906 3.52827 3.53125 11.1814 3.53125 20.5897C3.53125 29.9981 11.1906 37.6512 20.6054 37.6512C30.0203 37.6512 37.6797 29.9981 37.6797 20.5897C37.6797 11.1814 30.0203 3.52827 20.6054 3.52827ZM49.1629 46.9336C49.779 47.5492 49.779 48.5474 49.1629 49.1632L49.1629 49.1632C48.8546 49.4712 48.4515 49.625 48.0469 49.625C47.6423 49.625 47.239 49.4711 46.9308 49.1632L38.1906 40.4296C37.5745 39.814 37.5745 38.8158 38.1906 38.2001C38.8069 37.5842 39.8063 37.5842 40.4227 38.2001L49.1629 46.9336Z"
+                fill="currentColor"
+                stroke="currentColor"
+                strokeWidth="0.75"
+              />
+            </svg>
+          </div>
+        </div>
       </div>
     </Link>
-  );
+  )
 }

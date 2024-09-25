@@ -1,7 +1,7 @@
 export interface StatsProps {
-  datasetCount: number;
-  orgCount: number;
-  groupCount: number;
+  datasetCount: number
+  orgCount: number
+  groupCount: number
 }
 
 const Stats: React.FC<StatsProps> = ({
@@ -11,14 +11,14 @@ const Stats: React.FC<StatsProps> = ({
 }) => {
   const stats = [
     {
-      name: "Datasets",
+      name: 'Datasets',
       icon: (
         <svg
           xmlns="http://www.w3.org/2000/svg"
           className="w-10 sm:mr-2 mt-2"
           fill="none"
           viewBox="0 0 24 24"
-          stroke="#65316c"
+          stroke="#242424"
         >
           <path
             strokeLinecap="round"
@@ -31,14 +31,14 @@ const Stats: React.FC<StatsProps> = ({
       stat: datasetCount,
     },
     {
-      name: "Groups",
+      name: 'Groups',
       icon: (
         <svg
           xmlns="http://www.w3.org/2000/svg"
           className="w-10 sm:mr-2 mt-2"
           fill="none"
           viewBox="0 0 24 24"
-          stroke="#65316c"
+          stroke="#242424"
         >
           <path
             strokeLinecap="round"
@@ -50,21 +50,22 @@ const Stats: React.FC<StatsProps> = ({
       ),
       stat: groupCount,
     },
-  ];
+  ]
 
   return (
-    <div className="flex flex-col sm:flex-row align-center justify-center sm:justify-start px-2 bg-transparent text-accent border-opacity-30 rounded-md my-4 py-10 gap-x-5">
+    <div className="flex flex-row align-center  justify-start  bg-transparent text-secondary  my-4 pt-5 gap-x-5">
       {stats.map((item) => (
-        <div key={item.name} className="flex flex-col sm:flex-row mr-2">
-          <div className="flex justify-center">{item.icon}</div>
-          <div className="text-2xl text-center">
-            {" "}
-            {item.stat} <div className="text-sm uppercase"> {item.name} </div>
+        <div key={item.name} className="flex flex-row items-center mr-2">
+          <div className="flex justify-center -mt-1.5 h-10 w-10">{item.icon}</div>
+          <div className="flex items-center gap-2 text-lg font-[600]  text-secondary">
+            {' '}
+            {item.stat}{' '}
+            <div className="font-normal"> {item.name} </div>
           </div>
         </div>
       ))}
     </div>
-  );
-};
+  )
+}
 
-export default Stats;
+export default Stats

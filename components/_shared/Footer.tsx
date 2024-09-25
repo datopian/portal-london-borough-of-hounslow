@@ -82,17 +82,17 @@ const Footer: React.FC = () => {
   }
 
   return (
-    <footer className="bg-white">
+    <footer className="bg-accent !text-white">
       <div className="custom-container flex flex-col flex-wrap py-10 mx-auto md:items-center lg:items-start md:flex-row md:flex-nowrap text-secondary">
         <div className="justify-between w-full text-center md:text-left lg:flex">
           <div className="w-full lg:w-1/3 md:w-1/2">
-            <h2 className="mt-4 mb-4 font-inter font-black">ABOUT DATOPIAN</h2>
+            <h2 className="mt-4 mb-4 font-inter font-black text-white">ABOUT DATOPIAN</h2>
             <ul className="space-y-4 text-sm list-none">
               {navigation.about.map((item) => (
                 <li key={item.name}>
                   <a
                     href={item.href}
-                    className="font-inter font-normal hover:text-gray-400"
+                    className="font-inter font-normal text-white"
                   >
                     {item.name}
                   </a>
@@ -102,13 +102,13 @@ const Footer: React.FC = () => {
           </div>
 
           <div className="w-full lg:w-1/3 md:w-1/2">
-            <h2 className="mt-4 mb-4 font-inter font-black">USEFUL LINKS</h2>
+            <h2 className="mt-4 mb-4 font-inter font-black text-white">USEFUL LINKS</h2>
             <ul className="space-y-4 text-sm list-none">
               {navigation.useful.map((item) => (
                 <li key={item.name}>
                   <a
                     href={item.href}
-                    className="font-inter font-normal hover:text-gray-400"
+                    className="font-inter font-normal text-white"
                   >
                     {item.name}
                   </a>
@@ -118,7 +118,7 @@ const Footer: React.FC = () => {
           </div>
         </div>
         <div className="w-full md:w-1/2 flex flex-col justify-between text-center md:text-left">
-          <h2 className="mt-4 mb-4 font-inter font-black">
+          <h2 className="mt-4 mb-4 font-inter font-black text-white">
             STAY UP TO DATE WITH THE NEWS
           </h2>
           <div className="flex mt-5 space-x-5 justify-center md:justify-start">
@@ -138,7 +138,7 @@ const Footer: React.FC = () => {
           rel="noreferrer"
           className="text-xl font-medium"
         >
-          🌀 PortalJS
+          Built with 🌀 PortalJS
         </a>
       </div>
     </footer>

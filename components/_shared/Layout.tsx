@@ -9,7 +9,7 @@ const inter = Inter({
 
 export default function Layout({ children }: { children: React.ReactNode }) {
   return (
-    <div className={`bg-gradient-to-b from-white via-gray-50 to-accent ${inter.className}`} >
+    <div className={`${inter.className}`} >
       {children}
       <Footer />
     </div>
