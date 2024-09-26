@@ -6,10 +6,18 @@ interface IconProps {
 const Footer: React.FC = () => {
   const navigation = {
     about: [
-      { name: 'About Us', href: 'https://www.datopian.com/about/' },
       {
-        name: 'DataHub Open Data',
-        href: 'https://datahub.io/opendata',
+        name: 'About us',
+        href: '#',
+      },
+      { name: 'Contact', href: '#' },
+      {
+        name: 'Cookies',
+        href: '#',
+      },
+      {
+        name: 'Privacy notice',
+        href: '#',
       },
     ],
     useful: [
@@ -84,63 +92,40 @@ const Footer: React.FC = () => {
   return (
     <footer className="bg-accent !text-white">
       <div className="custom-container flex flex-col flex-wrap py-10 mx-auto md:items-center lg:items-start md:flex-row md:flex-nowrap text-secondary">
-        <div className="justify-between w-full text-center md:text-left lg:flex">
-          <div className="w-full lg:w-1/3 md:w-1/2">
-            <h2 className="mt-4 mb-4 font-inter font-black text-white">ABOUT DATOPIAN</h2>
-            <ul className="space-y-4 text-sm list-none">
+        <div className="flex flex-col-reverse justify-between w-full text-center md:text-left lg:flex-row gap-4 items-center">
+          <div className="w-full lg:w-2/3">
+            <ul className="flex gap-4 text-md list-none justify-center lg:justify-start">
               {navigation.about.map((item) => (
                 <li key={item.name}>
                   <a
                     href={item.href}
-                    className="font-inter font-normal text-white"
+                    className="font-inter font-normal text-white underline hover:decoration-2"
                   >
                     {item.name}
                   </a>
                 </li>
               ))}
             </ul>
+            <div className="text-white font-inter text-[14px] flex justify-center lg:justify-start mt-2 lg:mt-1">
+              © Copyright 2024 London Borough of Hounslow. Powered
+              by
+              <a
+                href="https://portaljs.org"
+                target="_blank"
+                rel="noreferrer"
+                className="group"
+              >
+                🌀 <span className="underline group-hover:decoration-2">PortalJS</span>
+              </a>
+            </div>
           </div>
 
-          <div className="w-full lg:w-1/3 md:w-1/2">
-            <h2 className="mt-4 mb-4 font-inter font-black text-white">USEFUL LINKS</h2>
-            <ul className="space-y-4 text-sm list-none">
-              {navigation.useful.map((item) => (
-                <li key={item.name}>
-                  <a
-                    href={item.href}
-                    className="font-inter font-normal text-white"
-                  >
-                    {item.name}
-                  </a>
-                </li>
-              ))}
-            </ul>
-          </div>
-        </div>
-        <div className="w-full md:w-1/2 flex flex-col justify-between text-center md:text-left">
-          <h2 className="mt-4 mb-4 font-inter font-black text-white">
-            STAY UP TO DATE WITH THE NEWS
-          </h2>
-          <div className="flex mt-5 space-x-5 justify-center md:justify-start">
-            {navigation.social.map((item) => (
-              <a key={item.name} href={item.href}>
-                <span className="sr-only">{item.name}</span>
-                <item.icon className="flex h-6 w-6" aria-hidden={true} />
-              </a>
-            ))}
+          <div className="flex w-full lg:w-1/3 justify-center lg:justify-auto">
+            <img src="/images/logos/site-logo-footer.svg" />
           </div>
         </div>
       </div>
-      <div className="custom-container flex flex-col flex-wrap py-6 mx-auto md:items-center lg:items-start md:flex-row md:flex-nowrap">
-        <a
-          href="https://portaljs.org"
-          target="_blank"
-          rel="noreferrer"
-          className="text-xl font-medium"
-        >
-          Built with 🌀 PortalJS
-        </a>
-      </div>
+      
     </footer>
   )
 }
