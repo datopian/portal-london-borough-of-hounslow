@@ -80,7 +80,7 @@ export default function ResourcePage({
             </div>
           </section>
           <section className="grid row-start-2 row-span-2 col-span-full pb-16">
-            <div className="custom-container bg-[#fcfcfc] lg:px-4 py-8 rounded">
+            <div className="custom-container bg-[#fcfcfc] lg:px-4 py-8 rounded max-w-6xl">
               <div className="flex items-center gap-x-4 custom-container">
                 <ResourceCard small resource={resource} />
                 <h1 className="text-4xl truncate max-w-xs sm:max-w-sm lg:max-w-lg">

@@ -91,7 +91,7 @@ const Footer: React.FC = () => {
 
   return (
     <footer className="bg-accent !text-white">
-      <div className="custom-container flex flex-col flex-wrap py-10 mx-auto md:items-center lg:items-start md:flex-row md:flex-nowrap text-secondary">
+      <div className="max-w-6xl custom-container flex flex-col flex-wrap py-10 mx-auto md:items-center lg:items-start md:flex-row md:flex-nowrap text-secondary">
         <div className="flex flex-col-reverse justify-between w-full text-center md:text-left lg:flex-row gap-4 items-center">
           <div className="w-full lg:w-2/3">
             <ul className="flex gap-4 text-md list-none justify-center lg:justify-start">

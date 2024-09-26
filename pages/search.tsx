@@ -78,9 +78,8 @@ export default function DatasetSearch({
             >
               <TopBar />
               <div
-                className="grid md:grid-cols-2 mx-auto items-center grow"
+                className="grid md:grid-cols-2 mx-auto items-center grow w-full max-w-6xl px-4 xl:px-0"
                 //This lines up the text with the search form below
-                style={{ width: "min(1100px, 95vw)" }}
               >
                 <div className="col-span-1">
                   <h1 className="text-6xl font-black text-white">

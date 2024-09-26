@@ -44,19 +44,19 @@ export default function DatasetSearchForm({
         });
       }}
     >
-      <div className="mx-auto" style={{ width: "min(1100px, 95vw)" }}>
+      <div className="mx-auto max-w-6xl w-full px-4 xl:px-0">
         <Form className="min-h-[80px] flex flex-col lg:flex-row bg-white px-5 py-3 rounded-xl border-box border-black">
           <Field
             type="text"
             placeholder="Search Datasets"
-            className="mx-4 grow py-4 border-0 placeholder:text-neutral-400"
+            className="ml-6 lg:ml-2 grow py-4 border-0 placeholder:text-secondary"
             name="query"
           />
           <Field
             list="groups"
             name="group"
-            placeholder="Themes"
-            className="lg:border-l p-4 mx-2 placeholder:text-neutral-400"
+            placeholder="Groups"
+            className="lg:border-l p-4 mx-2 placeholder:text-secondary"
           ></Field>
 
           <datalist aria-label="Formats" id="groups">
@@ -69,7 +69,7 @@ export default function DatasetSearchForm({
             list="orgs"
             name="org"
             placeholder="Organization"
-            className="lg:border-l p-4 mx-2 placeholder:text-neutral-400"
+            className="lg:border-l p-4 mx-2 placeholder:text-secondary"
           ></Field>
           <datalist aria-label="Formats" id="orgs">
             <option value="">Organization</option>
@@ -78,10 +78,10 @@ export default function DatasetSearchForm({
             ))}
           </datalist>
           <button
-            className="font-bold text-white px-12 py-4 rounded-lg bg-accent hover:bg-lightaccent duration-150"
+            className="font-[600] text-white px-12 py-4 rounded-lg bg-accent hover:bg-lightaccent hover:text-secondary duration-150"
             type="submit"
           >
-            SEARCH
+            Search
           </button>
         </Form>
       </div>

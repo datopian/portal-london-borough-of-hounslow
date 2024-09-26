@@ -21,9 +21,9 @@ export default function SearchHero({
             onChange(e.target.value);
           }}
           value={searchValue}
-          placeholder="Education"
+          placeholder="Search..."
           aria-label="Search"
-          className="w-3/4 px-3 py-4 my-8 border border-accent rounded-md leading-none bg-white placeholder-gray-500 focus:outline-none focus:placeholder-gray-400 focus:ring-1 focus:ring-accent focus:border-accent"
+          className="w-3/4 px-3 py-4 my-8 border border-accent rounded-md leading-none bg-white placeholder-secondary focus:outline-none focus:placeholder-gray-400 focus:ring-1 focus:ring-accent focus:border-accent"
         />
       </div>
     </div>

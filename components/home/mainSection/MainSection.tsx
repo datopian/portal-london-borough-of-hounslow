@@ -11,7 +11,7 @@ export default function MainSection({
   datasets: Array<Dataset>;
 }) {
   return (
-    <section className="custom-container homepage-padding">
+    <section className="custom-container homepage-padding max-w-6xl pb-12">
       <section className="grid grid-cols-1 md:grid-cols-2 gap-y-4">
         <section className="col-span-1 md:pr-2">
           <PopularDatasets datasets={datasets} />

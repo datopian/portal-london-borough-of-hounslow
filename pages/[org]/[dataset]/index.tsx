@@ -116,10 +116,10 @@ export default function DatasetPage({
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <Layout>
-        <div className="grid grid-rows-datasetpage-hero">
+        <div className="grid grid-rows-datasetpage-hero min-h-[87.2vh]">
           <section className="row-start-1 row-end-3 col-span-full">
             <div
-              className="bg-cover h-full bg-center bg-no-repeat bg-accent flex flex-col"
+              className="bg-cover h-full bg-accent flex flex-col"
             >
               <TopBar />
               <DatasetNavCrumbs
@@ -133,8 +133,7 @@ export default function DatasetPage({
                 }}
               />
               <div
-                className="grid mx-auto items-center grow custom-container grow"
-                style={{ marginBlock: "8rem" }}
+                className="grid mx-auto items-center grow custom-container grow max-w-6xl pb-24 pt-7"
               >
                 <div className="col-span-1">
                   <h1 className="text-6xl font-black text-white">
@@ -144,8 +143,8 @@ export default function DatasetPage({
               </div>
             </div>
           </section>
-          <section className="grid row-start-2 row-span-2 col-span-full">
-            <div className="custom-container">
+          <section className="grid row-start-2 row-span-2 col-span-full ">
+            <div className="custom-container max-w-6xl">
               {dataset && (
                 <main className={styles.main}>
                   <DatasetInfo dataset={dataset} />

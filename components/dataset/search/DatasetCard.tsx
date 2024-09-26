@@ -67,9 +67,13 @@ export default function DatasetCard({
 
   return (
     <article className="grid grid-cols-1 md:grid-cols-7 gap-x-2">
-      <ResourceCard
-        resource={dataset?.resources.find((resource) => resource.format)}
-      />
+      <div className="mb-4 md:mb-0">
+        {' '}
+        <ResourceCard
+          resource={dataset?.resources.find((resource) => resource.format)}
+        />
+      </div>
+
       <div className="col-span-6 place-content-start flex flex-col gap-1">
         <Link href={`/${dataset.organization.name}/${dataset.name}`}>
           <h1 className="m-auto md:m-0 font-semibold text-lg text-secondary">

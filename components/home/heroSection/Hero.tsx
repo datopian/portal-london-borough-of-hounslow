@@ -42,10 +42,9 @@ export default function Hero({ stats }: { stats: StatsProps }) {
           </div>
         </div>
       </section>
-      <div className="max-w-screen sm:-mt-24 sm:mb-24">
+      <div className=" max-w-screen my-24">
         <div className="max-w-6xl mx-auto ">
-          {' '}
-          <h3 className="text-2xl  font-inter sm:-mt-24 mt-8 mx-4 sm:mx-8 xl:mx-auto">
+          <h3 className="text-xl  font-inter mx-4 sm:mx-8 xl:mx-auto leading-8">
             On this website we are making a host of information available about
             the borough of Hounslow and its communities by enabling you to
             access various sources of open data. This is a service provided by
@@ -57,12 +56,6 @@ export default function Hero({ stats }: { stats: StatsProps }) {
           </h3>
         </div>
       </div>
-      <section
-        className="custom-container homepage-padding grid grid-cols-1 sm:grid-cols-4 gap-5 row-start-3 row-span-2 col-span-full pt-8 sm:pt-0 max-w-6xl"
-        style={{ minHeight: '300px' }}
-      >
-       
-      </section>
     </section>
   )
 }

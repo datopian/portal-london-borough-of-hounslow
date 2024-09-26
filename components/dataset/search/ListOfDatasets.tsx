@@ -42,12 +42,14 @@ function ListItems({
 
   return (
     <>
-      <h2 className="text-4xl capitalize font-bold text-secondary">
+      <h2 className="text-4xl pt-8 pb-4 capitalize font-bold text-secondary">
         {data?.count} Datasets
       </h2>
-      {data?.datasets?.map((dataset) => (
-        <DatasetCard key={dataset.id} dataset={dataset} showOrg={true} />
-      ))}
+      <div className="space-y-16 lg:space-y-8">
+        {data?.datasets?.map((dataset) => (
+          <DatasetCard key={dataset.id} dataset={dataset} showOrg={true} />
+        ))}
+      </div>
       {data?.count && (
         <Pagination
           options={options}
