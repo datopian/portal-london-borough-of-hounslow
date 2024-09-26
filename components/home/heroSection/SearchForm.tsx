@@ -29,11 +29,11 @@ const SearchForm: React.FC = () => {
         }}
         placeholder="Search datasets..."
         aria-label="Search"
-        className="w-3/4 pl-3 py-4 border border-secondary rounded-md leading-none bg-white placeholder-secondary text-xl font-inter focus:border-secondary focus:outline-none "
+        className="w-3/4 pl-3 py-[0.78rem] border border-secondary rounded-md leading-none bg-white placeholder-secondary text-xl font-inter focus:border-secondary focus:outline-none "
       />
       <button
         type="submit"
-        className="text-base transition font-[600] px-10 py-4 leading-none border bg-accent rounded-md text-white hover:text-secondary border-accent lg:mt-0 focus:bg-lightaccent hover:bg-lightaccent"
+        className="text-base transition font-[600] px-10 py-4 leading-none border bg-white rounded-md text-accent hover:text-secondary border-accent lg:mt-0 hover:bg-lightaccent"
       >
         Search
       </button>

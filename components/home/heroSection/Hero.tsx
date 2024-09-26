@@ -8,14 +8,14 @@ export default function Hero({ stats }: { stats: StatsProps }) {
     <section className="sm:grid sm:grid-rows-frontpage-hero">
       <section className="row-start-1 row-span-3 col-span-full">
         <div
-          className="bg-no-repeat bg-cover bg-left flex flex-col min-h-[522px]"
+          className="bg-no-repeat bg-cover bg-left flex flex-col min-h-[212px]"
           style={{
             backgroundImage:
               "url('/images/backgrounds/hounslow-skyline-purple-01.jpg')",
           }}
         >
           <TopBar />
-          <div className="grid lg:grid-cols-2 max-w-6xl items-center grow custom-container min-h-[522px] ">
+          <div className="grid lg:grid-cols-2 max-w-6xl items-center grow custom-container min-h-[414px] ">
             <div className="col-span-1 drop-shadow py-12  ">
               <h1 className="text-[40px] font-[600] text-white  text-secondary">
                 Welcome to Hounslow&#39;s
@@ -24,26 +24,28 @@ export default function Hero({ stats }: { stats: StatsProps }) {
                 Open Data Portal
               </h1>
 
-              <div className="mt-6 bg-white p-6">
-                <div className="pt-2 sm:max-w-lg sm:text-center lg:text-left lg:mx-0 ">
+              <div className="">
+                <div className="pt-4 sm:max-w-lg sm:text-center lg:text-left lg:mx-0 ">
                   <SearchForm />
                 </div>
-                <div className="sm:max-w-lg py-4 sm:py-0">
+               
+              </div>
+              
+            </div>
+            <div className="sm:max-w-lg py-4 sm:py-0">
                   <Stats
                     datasetCount={stats.datasetCount}
                     orgCount={stats.orgCount}
                     groupCount={stats.groupCount}
                   />
                 </div>
-              </div>
-            </div>
           </div>
         </div>
       </section>
-      <div className="max-w-screen mb-24">
+      <div className="max-w-screen sm:-mt-24 sm:mb-24">
         <div className="max-w-6xl mx-auto ">
           {' '}
-          <h3 className="text-2xl font-[600] font-inter sm:-mt-24 mt-8 mx-4 sm:mx-8 xl:mx-auto">
+          <h3 className="text-2xl  font-inter sm:-mt-24 mt-8 mx-4 sm:mx-8 xl:mx-auto">
             On this website we are making a host of information available about
             the borough of Hounslow and its communities by enabling you to
             access various sources of open data. This is a service provided by
@@ -59,12 +61,7 @@ export default function Hero({ stats }: { stats: StatsProps }) {
         className="custom-container homepage-padding grid grid-cols-1 sm:grid-cols-4 gap-5 row-start-3 row-span-2 col-span-full pt-8 sm:pt-0 max-w-6xl"
         style={{ minHeight: '300px' }}
       >
-        <section className="col-span-1">
-          <FindData />
-        </section>
-        <section className="col-span-1">
-          <Groups />
-        </section>
+       
       </section>
     </section>
   )

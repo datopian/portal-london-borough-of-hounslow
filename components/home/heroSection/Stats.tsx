@@ -18,7 +18,7 @@ const Stats: React.FC<StatsProps> = ({
           className="w-10 sm:mr-2 mt-2"
           fill="none"
           viewBox="0 0 24 24"
-          stroke="#242424"
+          stroke="white"
         >
           <path
             strokeLinecap="round"
@@ -38,7 +38,7 @@ const Stats: React.FC<StatsProps> = ({
           className="w-10 sm:mr-2 mt-2"
           fill="none"
           viewBox="0 0 24 24"
-          stroke="#242424"
+          stroke="white"
         >
           <path
             strokeLinecap="round"
@@ -53,17 +53,20 @@ const Stats: React.FC<StatsProps> = ({
   ]
 
   return (
-    <div className="flex flex-row align-center  justify-start  bg-transparent text-secondary  my-4 pt-5 gap-x-5">
-      {stats.map((item) => (
-        <div key={item.name} className="flex flex-row items-center mr-2">
-          <div className="flex justify-center -mt-1.5 h-10 w-10">{item.icon}</div>
-          <div className="flex items-center gap-2 text-lg font-[600]  text-secondary">
-            {' '}
-            {item.stat}{' '}
-            <div className="font-normal"> {item.name} </div>
+    <div className="flex lg:justify-end">
+      <div className="flex flex-col items-start  bg-transparent text-secondary mb-4 lg:my-4 sm:pt-5 gap-x-5 ">
+        {stats.map((item) => (
+          <div key={item.name} className="flex items-center mr-2 ">
+            <div className="flex justify-center -mt-1.5 h-12 w-12 ">
+              {item.icon}
+            </div>
+            <div className="flex items-center gap-2 text-2xl font-[600]  text-white">
+              {' '}
+              {item.stat} <div className="font-normal"> {item.name} </div>
+            </div>
           </div>
-        </div>
-      ))}
+        ))}
+      </div>
     </div>
   )
 }
