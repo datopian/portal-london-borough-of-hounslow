@@ -21,7 +21,7 @@ export default function ResourcesList({
         >
           <article className="grid grid-cols-1 sm:grid-cols-6 gap-x-2 grow">
             <ResourceCard resource={resource} />
-            <div className="col-span-5 place-content-start flex flex-col gap-0">
+            <div className="col-span-5 place-content-start flex flex-col gap-0 px-2">
               <h4 className="m-auto md:m-0 font-semibold text-lg text-secondary leading-tight line-clamp-3 pr-5 py-4 sm:py-0">
                 {resource.name || 'No title'}
               </h4>
@@ -34,7 +34,7 @@ export default function ResourcesList({
             {resource.url && (
               <Link
                 href={resource.url}
-                className="bg-accent py-2.5 px-6 hover:text-secondary rounded-md font-inter font-[600] hover:bg-lightaccent text-white duration-150 flex items-center gap-1 justify-between"
+                className="bg-accent py-2.5 px-8 hover:text-secondary border border-accent rounded-md font-inter font-[600] hover:bg-lightaccent text-white duration-150 flex items-center gap-1 justify-between"
               >
                 Download
                 <svg
@@ -58,7 +58,7 @@ export default function ResourcesList({
             ) && (
               <Link
                 href={`/${orgName}/${datasetName}/r/${resource.id}`}
-                className="bg-lightaccent py-2.5 px-6 text-secondary rounded-md font-inter font-[600] hover:bg-accent hover:text-white duration-150 flex items-center justify-between gap-1"
+                className="bg-white border-accent border py-2.5 px-8 text-accent rounded-md font-inter font-[600] hover:bg-lightaccent hover:text-secondary duration-150 flex items-center justify-between gap-1"
               >
                 Preview{' '}
                 <svg

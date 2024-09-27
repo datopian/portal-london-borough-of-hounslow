@@ -10,9 +10,9 @@ export default function SearchHero({
   onChange: Dispatch<SetStateAction<string>>;
 }) {
   return (
-    <div className="grid md:grid-cols-2 mx-auto items-center grow custom-container grow pt-16">
+    <div className="grid md:grid-cols-2 mx-auto items-center grow custom-container grow pt-16 max-w-6xl">
       <div className="col-span-1">
-        <h1 className="text-5xl font-black text-white">{title}</h1>
+        <h1 className="text-4xl font-[600] text-white pt-1">{title}</h1>
         <input
           id="search2"
           type="search"

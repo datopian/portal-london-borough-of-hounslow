@@ -43,8 +43,8 @@ export default function Home({
   return (
     <>
       <Head>
-        <title>Open Data Portal Demo</title>
-        <meta name="description" content="Open Data Portal Demo" />
+        <title>London Borough of Hounslow Open Data</title>
+        <meta name="description" content="London Borough of Hounslow Open Data Portal" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <Layout>

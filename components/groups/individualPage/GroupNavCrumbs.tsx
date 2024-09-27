@@ -7,32 +7,17 @@ export default function GroupNavCrumbs({
 }) {
   return (
     <nav>
-      <ul className="flex gap-x-8 mx-auto custom-container">
+      <ul className="flex gap-x-8 pt-6 max-w-6xl mx-auto custom-container">
         <li className="flex gap-x-2 align-center flex-col sm:flex-row">
           <Link
             href="/groups"
-            className="font-semibold text-white"
+            className="font-semibold text-white underline hover:decoration-2 transition"
             style={{ minWidth: "fit-content" }}
           >
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              fill="none"
-              viewBox="0 0 24 24"
-              strokeWidth={1.5}
-              stroke="currentColor"
-              className="w-4 h-4 text-white inline"
-            >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                d="M8.25 4.5l7.5 7.5-7.5 7.5"
-              />
-            </svg>
             Groups
           </Link>
           {group.name && group.title && (
-            <Link
-              href={`/groups/${group.name}`}
+            <div
               className="font-semibold text-white"
             >
               <svg
@@ -50,7 +35,7 @@ export default function GroupNavCrumbs({
                 />
               </svg>
               <span>{group.title}</span>
-            </Link>
+            </div>
           )}
         </li>
       </ul>

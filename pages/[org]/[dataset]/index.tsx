@@ -1,29 +1,29 @@
-import { GetStaticProps, InferGetStaticPropsType } from "next";
-import Head from "next/head";
-import getConfig from "next/config";
-import DatasetInfo from "@/components/dataset/individualPage/DatasetInfo";
-import DatasetOverview from "@/components/dataset/individualPage/DatasetOverview";
-import DatasetNavCrumbs from "@/components/dataset/individualPage/NavCrumbs";
-import ResourcesList from "@/components/dataset/individualPage/ResourcesList";
-import ActivityStream from "@/components/_shared/ActivityStream";
-import Layout from "@/components/_shared/Layout";
-import Tabs from "@/components/_shared/Tabs";
-import TopBar from "@/components/_shared/TopBar";
-import { Dataset as DatasetType } from "@portaljs/ckan";
-import { CKAN } from "@portaljs/ckan";
-import styles from "styles/DatasetInfo.module.scss";
+import { GetStaticProps, InferGetStaticPropsType } from 'next'
+import Head from 'next/head'
+import getConfig from 'next/config'
+import DatasetInfo from '@/components/dataset/individualPage/DatasetInfo'
+import DatasetOverview from '@/components/dataset/individualPage/DatasetOverview'
+import DatasetNavCrumbs from '@/components/dataset/individualPage/NavCrumbs'
+import ResourcesList from '@/components/dataset/individualPage/ResourcesList'
+import ActivityStream from '@/components/_shared/ActivityStream'
+import Layout from '@/components/_shared/Layout'
+import Tabs from '@/components/_shared/Tabs'
+import TopBar from '@/components/_shared/TopBar'
+import { Dataset as DatasetType } from '@portaljs/ckan'
+import { CKAN } from '@portaljs/ckan'
+import styles from 'styles/DatasetInfo.module.scss'
 import {
   getAvailableOrgs,
   privateToPublicDatasetName,
   privateToPublicOrgName,
   publicToPrivateDatasetName,
-} from "@/lib/queries/utils";
-import { getDataset } from "@/lib/queries/dataset";
+} from '@/lib/queries/utils'
+import { getDataset } from '@/lib/queries/dataset'
 
 export async function getStaticPaths() {
-  const ckan = new CKAN(process.env.NEXT_PUBLIC_DMS);
-  const mainOrg = process.env.NEXT_PUBLIC_ORG;
-  const availableOrgs = await getAvailableOrgs(mainOrg);
+  const ckan = new CKAN(process.env.NEXT_PUBLIC_DMS)
+  const mainOrg = process.env.NEXT_PUBLIC_ORG
+  const availableOrgs = await getAvailableOrgs(mainOrg)
   const paths = (
     await ckan.getDatasetsListWithDetails({ offset: 0, limit: 1000 })
   )
@@ -34,93 +34,98 @@ export async function getStaticPaths() {
         dataset: privateToPublicDatasetName(dataset.name, mainOrg),
         org: privateToPublicOrgName(dataset.organization?.name, mainOrg),
       },
-    }));
+    }))
   return {
     paths,
-    fallback: "blocking",
-  };
+    fallback: 'blocking',
+  }
 }
 
 export const getStaticProps: GetStaticProps = async (context) => {
   try {
-    const ckan = new CKAN(process.env.NEXT_PUBLIC_DMS);
-    const mainOrg = process.env.NEXT_PUBLIC_ORG;
-    const datasetName = context.params?.dataset as string;
-    const privateDatasetName = publicToPrivateDatasetName(datasetName, mainOrg);
+    const ckan = new CKAN(process.env.NEXT_PUBLIC_DMS)
+    const mainOrg = process.env.NEXT_PUBLIC_ORG
+    const datasetName = context.params?.dataset as string
+    const privateDatasetName = publicToPrivateDatasetName(datasetName, mainOrg)
     if (!datasetName) {
       return {
         notFound: true,
-      };
+      }
     }
-    let dataset = await getDataset({ name: datasetName as string });
+    let dataset = await getDataset({ name: datasetName as string })
     if (!dataset) {
       return {
         notFound: true,
-      };
+      }
     }
     const activityStream = await ckan.getDatasetActivityStream(
       privateDatasetName
-    );
+    )
     dataset = {
       ...dataset,
       activity_stream: activityStream,
-    };
+    }
     return {
       props: {
         dataset,
       },
       revalidate: 1800,
-    };
+    }
   } catch {
     return {
       notFound: true,
-    };
+    }
   }
-};
+}
 
 export default function DatasetPage({
   dataset,
 }: InferGetStaticPropsType<typeof getStaticProps>): JSX.Element {
   const tabs = [
     {
-      id: "resources",
+      id: 'resources',
       content: (
         <ResourcesList
           resources={dataset?.resources}
-          orgName={dataset.organization ? dataset.organization.name : ""}
+          orgName={dataset.organization ? dataset.organization.name : ''}
           datasetName={dataset.name}
         />
       ),
-      title: "Resources",
+      title: 'Resources',
     },
     {
-      id: "information",
+      id: 'information',
       content: <DatasetOverview dataset={dataset} />,
-      title: "Info",
+      title: 'Info',
     },
     {
-      id: "activity-stream",
+      id: 'activity-stream',
       content: (
         <ActivityStream
           activities={dataset?.activity_stream ? dataset.activity_stream : []}
         />
       ),
-      title: "Activity Stream",
+      title: 'Activity Stream',
     },
-  ];
+  ]
   return (
     <>
       <Head>
         <title>{`${dataset.title || dataset.name} - Dataset`}</title>
-        <meta name="description" content="Generated by create next app" />
+        <meta
+          name="description"
+          content={
+            dataset.description
+              ? dataset.description
+              : 'London Borough of Hounslow'
+          }
+        />
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <Layout>
         <div className="grid grid-rows-datasetpage-hero min-h-[87.2vh]">
           <section className="row-start-1 row-end-3 col-span-full">
-            <div
-              className="bg-cover h-full bg-accent flex flex-col"
-            >
+            <div className="bg-cover h-full bg-accent flex flex-col">
               <TopBar />
               <DatasetNavCrumbs
                 org={{
@@ -129,14 +134,12 @@ export default function DatasetPage({
                 }}
                 dataset={{
                   name: dataset.name,
-                  title: dataset.title ? dataset.title : "This dataset",
+                  title: dataset.title ? dataset.title : 'This dataset',
                 }}
               />
-              <div
-                className="grid mx-auto items-center grow custom-container grow max-w-6xl pb-24 pt-7"
-              >
+              <div className="grid mx-auto items-center grow custom-container grow max-w-6xl pb-24 pt-7">
                 <div className="col-span-1">
-                  <h1 className="text-6xl font-black text-white">
+                  <h1 className="text-4xl font-[600] text-white">
                     {dataset.title}
                   </h1>
                 </div>
@@ -144,7 +147,7 @@ export default function DatasetPage({
             </div>
           </section>
           <section className="grid row-start-2 row-span-2 col-span-full ">
-            <div className="custom-container max-w-6xl">
+            <div className="custom-container max-w-6xl drop-shadow">
               {dataset && (
                 <main className={styles.main}>
                   <DatasetInfo dataset={dataset} />
@@ -158,5 +161,5 @@ export default function DatasetPage({
         </div>
       </Layout>
     </>
-  );
+  )
 }

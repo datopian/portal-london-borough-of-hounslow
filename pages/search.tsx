@@ -82,7 +82,7 @@ export default function DatasetSearch({
                 //This lines up the text with the search form below
               >
                 <div className="col-span-1">
-                  <h1 className="text-6xl font-black text-white">
+                  <h1 className="text-4xl font-semibold text-white">
                     Search Datasets
                   </h1>
                   <h2 className="text-xl text-white py-6">

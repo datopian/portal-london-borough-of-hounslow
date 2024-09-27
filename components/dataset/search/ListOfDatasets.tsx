@@ -42,7 +42,7 @@ function ListItems({
 
   return (
     <>
-      <h2 className="text-4xl pt-8 pb-4 capitalize font-bold text-secondary">
+      <h2 className="text-4xl pt-8 pb-4 capitalize font-[600] text-secondary">
         {data?.count} Datasets
       </h2>
       <div className="space-y-16 lg:space-y-8">
