@@ -10,11 +10,11 @@ export default function OrgNavCrumbs({
       <ul className="flex gap-x-8 mx-auto custom-container max-w-6xl pt-6">
         <li className="flex gap-x-2 align-center flex-col sm:flex-row">
           <Link
-            href="/organizations"
+            href="/organisations"
             className="font-semibold text-white underline hover:decoration-2 transiton"
             style={{ minWidth: "fit-content" }}
           >
-            Organizations
+            Organisations
           </Link>
           {org.name && org.title && (
             <div className="font-semibold text-white">

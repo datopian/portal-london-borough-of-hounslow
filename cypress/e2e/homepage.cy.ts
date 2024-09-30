@@ -20,12 +20,12 @@ describe("Home Page Tests", () => {
           ]);
           if (el.text() === "DATASETS") {
             expect(el).to.have.attr("href", "/search");
-            expect(el).not.to.have.attr("href", "/organizations");
+            expect(el).not.to.have.attr("href", "/organisations");
             expect(el).not.to.have.attr("href", "/groups");
           }
 
           if (el.text() === "ORGANIZATIONS") {
-            expect(el).to.have.attr("href", "/organizations");
+            expect(el).to.have.attr("href", "/organisations");
           }
           if (el.text() === "GROUPS") {
             expect(el).to.have.attr("href", "/groups");

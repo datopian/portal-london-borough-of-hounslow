@@ -7,7 +7,7 @@ export default function About() {
     <>
       <Head>
         <title>
-          About the Open Data Portal - London Borough of Hounslow Open Data
+          About
         </title>
         <meta name="description" content="About the Open Data Portal" />
         <link rel="icon" href="/favicon.ico" />

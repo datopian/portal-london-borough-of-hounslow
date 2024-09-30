@@ -31,7 +31,7 @@ export default function OrgsPage({
     <>
       <Head>
         <title>Organisations</title>
-        <meta name="description" content="List of organizations from the London Borough of Hounslow Open Data Portal" />
+        <meta name="description" content="List of organisations from the London Borough of Hounslow Open Data Portal" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <Main miniSearch={miniSearch} orgs={orgs} />

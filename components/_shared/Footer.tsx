@@ -101,6 +101,7 @@ const Footer: React.FC = () => {
                     href={item.href}
                     className="font-inter font-normal text-white underline hover:decoration-2"
                     target="_blank"
+                    rel="noreferrer"
                   >
                     {item.name}
                   </a>

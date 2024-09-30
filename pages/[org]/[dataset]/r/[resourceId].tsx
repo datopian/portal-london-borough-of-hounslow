@@ -7,6 +7,8 @@ import { Resource } from '@portaljs/ckan'
 import { CKAN } from '@portaljs/ckan'
 import dynamic from 'next/dynamic'
 import Link from 'next/link'
+import Head from 'next/head'
+import { capitalize } from '@/lib/utils'
 
 const PdfViewer = dynamic(
   () => import('@portaljs/components').then((mod) => mod.PdfViewer),
@@ -67,6 +69,10 @@ export default function ResourcePage({
   const resourceFormat = resource.format.toLowerCase()
   return (
     <>
+      <Head>
+        <title>{capitalize(resource.name) || 'Dataset Resource'}</title>
+        <meta name="description" content={resource.description|| 'Resource available from the Open Data Portal.'}/>
+      </Head>
       <Layout>
         <div className="grid grid-rows-datasetpage-hero">
           <section className="row-start-1 row-end-3 col-span-full">

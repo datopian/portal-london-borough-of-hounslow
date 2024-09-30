@@ -2,34 +2,16 @@ import Link from 'next/link'
 
 export function Organizations() {
   return (
-    <Link href="/organizations">
+    <Link href="/organisations">
       <div className="group bg-white p-8 rounded-lg shadow-md py-16 hover:bg-lightaccent cursor-pointer h-full text-secondary">
         <img className="m-auto" src="/images/upload.svg" alt="Upload icon" />
         <h1 className="group-hover:text-white text-2xl uppercase font-black pt-4 font-inter text-center">
           {' '}
-          Organizations{' '}
+          Organisations{' '}
         </h1>
         <p className="hidden group-hover:text-white text-center text-black font-sans pt-2">
           {' '}
           See publisher organizations <br /> available on Portal.
-        </p>
-      </div>
-    </Link>
-  )
-}
-
-export function Groups2() {
-  return (
-    <Link href="/groups">
-      <div className="group bg-white border-box border-l-[6px] border-lightaccent text-secondary py-3 cursor-pointer h-[198px]">
-        <img className="m-auto" src="/images/request.svg" alt="Request icon" />
-        <h1 className="group-hover:underline text-2xl font-[600] pt-4 font-inter text-center">
-          {' '}
-          Groups{' '}
-        </h1>
-        <p className=" hidden group-hover:underline text-center text-lg font-normal font-inter pt-2">
-          {' '}
-          Browse datasets <br /> by categories.
         </p>
       </div>
     </Link>

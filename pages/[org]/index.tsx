@@ -11,7 +11,7 @@ import DatasetList from "@/components/_shared/DatasetList";
 import { CKAN, Organization } from "@portaljs/ckan";
 import { getAllOrganizations, getOrganization } from "@/lib/queries/orgs";
 import { getDataset } from "@/lib/queries/dataset";
-import { capitalize, capitalizeFirstLetter } from "@/lib/utils";
+import { capitalize } from "@/lib/utils";
 
 export async function getStaticPaths() {
   const paths = (await getAllOrganizations({ detailed: false })).map(
@@ -89,11 +89,12 @@ export default function OrgPage({
     <>
       <Head>
         <title>{capitalize(org.title) || capitalize(org.name) + " - Organization Page"}</title>
+        <meta name = "description"
         content={
             org.description
               ? org.description
-              : 'London Borough of Hounslow'
-          }
+              : 'London Borough of Hounslow organisation from the Open Data Portal'
+          }/>
         <link rel="icon" href="/favicon.ico" />
       </Head>
       {org && (

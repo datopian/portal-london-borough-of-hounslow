@@ -86,7 +86,7 @@ export default function OrgPage({
   return (
     <>
       <Head>
-        <title>{capitalize(group?.name) ? capitalize(group.name) : "Group Page"}</title>
+        <title>{capitalize(group?.title) ? capitalize(group.title) : "Group Page"}</title>
         <meta name="description" content={group.description? group.description : ""} />
         <link rel="icon" href="/favicon.ico" />
       </Head>

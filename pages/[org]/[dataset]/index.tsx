@@ -108,17 +108,14 @@ export default function DatasetPage({
       title: 'Activity Stream',
     },
   ]
+
   return (
     <>
       <Head>
         <title>{`${dataset.title || dataset.name} - Dataset`}</title>
         <meta
           name="description"
-          content={
-            dataset.description
-              ? dataset.description
-              : 'London Borough of Hounslow'
-          }
+          content={dataset.notes?.replace(/<\/?[^>]+(>|$)/g, '') || 'London Borough of Hounslow Dataset'}
         />
         <link rel="icon" href="/favicon.ico" />
       </Head>

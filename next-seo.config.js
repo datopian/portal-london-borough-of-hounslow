@@ -1,18 +1,18 @@
 export default {
-  titleTemplate: "%s | Ckan Homepage",
-  description: "Ckan Homepage",
-  canonical: "https://datahub-enterprise.vercel.app/",
+  titleTemplate: "%s | London Borough of Hounslow",
+  descriptionTemplate: "% | London Borough of Hounslow Open Data",
+  canonical: "https://data.hounslow.gov.uk",
   openGraph: {
-    title: "Ckan Homepage",
+    titleTemplate: " %s | London Borough of Hounslow Open Data",
     type: "website",
-    url: "https://datahub-enterprise.vercel.app/",
-    site_name: "Ckan Homepage",
+    url: "https://data.hounslow.gov.uk",
+    site_name: "London Borough of Hounslow Open Data",
     images: [
       {
-        url: "https://datahub-enterprise.vercel.app/images/datahub_enterprise_frontend.png",
-        alt: "Ckan Homepage",
+        url: "/opengraph.jpg",
+        alt: "London Borough of Hounslow",
         width: 1200,
-        height: 627,
+        height: 600,
         type: "image/jpg",
       },
     ],

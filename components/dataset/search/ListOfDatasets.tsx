@@ -34,7 +34,6 @@ function ListItems({
   setOptions: Dispatch<SetStateAction<PackageSearchOptions>>
 }) {
   const { data } = useSWR(['package_search', options], async () => {
-    console.log('Options', options)
     return searchDatasets(options)
   })
   //Define which page buttons are going to be displayed in the pagination list
