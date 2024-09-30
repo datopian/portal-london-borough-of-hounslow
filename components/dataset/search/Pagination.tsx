@@ -15,7 +15,7 @@ export default function Pagination({
   count: number;
 }) {
   return (
-    <div className="flex gap-2 align-center">
+    <div className="flex gap-2 align-center pt-6">
       {subsetOfPages !== 0 && (
         <button
           className="font-semibold flex items-center gap-2"

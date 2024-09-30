@@ -27,8 +27,8 @@ export default function ResourceCard({
   return (
     <div className="col-span-1 md:pt-1.5 place-content-center md:place-content-start">
       <div
-        className="bg-white border-l-[5px] border-box border-lightaccent max-w-[90px] min-w-[60px] mx-auto md:mx-0 flex place-content-center my-auto"
-        style={{ minHeight: small ? '60px' : '90px' }}
+        className="bg-white border-l-[5px] border-box border-lightaccent max-w-[100px] min-w-[64px] mx-auto md:mx-0 flex place-content-center my-auto"
+        style={{ minHeight: small ? '64px' : '100px' }}
       >
         {(resource && resource.format && (
           <span
@@ -46,7 +46,8 @@ export default function ResourceCard({
           </span>
         )) || (
           <span className="font-bold text-2xl text-gray-200 my-auto">NONE</span>
-        )}
+          )}
+        
       </div>
     </div>
   )

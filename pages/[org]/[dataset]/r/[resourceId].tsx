@@ -7,6 +7,8 @@ import { Resource } from '@portaljs/ckan'
 import { CKAN } from '@portaljs/ckan'
 import dynamic from 'next/dynamic'
 import Link from 'next/link'
+import Head from 'next/head'
+import { capitalize } from '@/lib/utils'
 
 const PdfViewer = dynamic(
   () => import('@portaljs/components').then((mod) => mod.PdfViewer),
@@ -67,6 +69,10 @@ export default function ResourcePage({
   const resourceFormat = resource.format.toLowerCase()
   return (
     <>
+      <Head>
+        <title>{capitalize(resource.name) || 'Dataset Resource'}</title>
+        <meta name="description" content={resource.description|| 'Resource available from the Open Data Portal.'}/>
+      </Head>
       <Layout>
         <div className="grid grid-rows-datasetpage-hero">
           <section className="row-start-1 row-end-3 col-span-full">
@@ -79,11 +85,11 @@ export default function ResourcePage({
               <TopBar />
             </div>
           </section>
-          <section className="grid row-start-2 row-span-2 col-span-full pb-16">
-            <div className="custom-container bg-[#fcfcfc] lg:px-4 py-8 rounded">
+          <section className="grid row-start-2 row-span-2 col-span-full pb-16 drop-shadow">
+            <div className="custom-container bg-[#fcfcfc] lg:px-4 py-8 rounded max-w-6xl">
               <div className="flex items-center gap-x-4 custom-container">
                 <ResourceCard small resource={resource} />
-                <h1 className="text-4xl truncate max-w-xs sm:max-w-sm lg:max-w-lg">
+                <h1 className="text-4xl truncate max-w-xs sm:max-w-sm lg:max-w-lg xl:max-w-4xl font-[600]text-secondary">
                   {resource.name}
                 </h1>
               </div>
@@ -145,7 +151,7 @@ export default function ResourcePage({
               <div className="custom-container py-4">
                 <Link
                   href={resource.url}
-                  className="bg-accent h-auto py-2 px-4 text-sm text-gray-800 rounded-xl font-inter font-bold hover:bg-cyan-800 text-white duration-150 flex items-center gap-1 w-fit"
+                  className="bg-accent  py-4 px-8 text-sm text-gray-800 rounded-md border-accent  font-bold hover:bg-lightaccent border hover:text-secondary text-white duration-150 flex items-center gap-1 w-fit"
                 >
                   Download
                   <svg

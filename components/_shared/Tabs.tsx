@@ -7,12 +7,12 @@ export default function Tabs({ items }: TabProps) {
   return (
     <>
       <Tab.Group>
-        <Tab.List>
+        <Tab.List className={`space-x-4 pb-4`}>
           {items.map((item, index) => (
             <Tab key={item.id}>
               {({ selected }) => (
                 <span
-                  className={`font-semibold text-xs px-6 py-4 focus:outline-0 border-accent ${
+                  className={`font-semibold text-lg  py-4 focus:outline-0 border-accent ${
                     selected ? "border-b-2" : ""
                   } `}
                 >

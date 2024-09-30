@@ -7,17 +7,17 @@ const Footer: React.FC = () => {
   const navigation = {
     about: [
       {
-        name: 'About us',
-        href: '#',
+        name: 'London Borough of Hounslow',
+        href: 'https://www.hounslow.gov.uk/',
       },
-      { name: 'Contact', href: '#' },
+      { name: 'Hounslow Data Hub', href: 'https://stats.hounslow.gov.uk/' },
       {
-        name: 'Cookies',
-        href: '#',
+        name: 'Contact us',
+        href: 'https://www.hounslow.gov.uk/info/20158/customer_services',
       },
       {
         name: 'Privacy notice',
-        href: '#',
+        href: 'https://www.hounslow.gov.uk/info/20110/open_data_and_information_requests/1368/privacy_notice',
       },
     ],
     useful: [
@@ -91,7 +91,7 @@ const Footer: React.FC = () => {
 
   return (
     <footer className="bg-accent !text-white">
-      <div className="custom-container flex flex-col flex-wrap py-10 mx-auto md:items-center lg:items-start md:flex-row md:flex-nowrap text-secondary">
+      <div className="max-w-6xl custom-container flex flex-col flex-wrap py-10 mx-auto md:items-center lg:items-start md:flex-row md:flex-nowrap text-secondary">
         <div className="flex flex-col-reverse justify-between w-full text-center md:text-left lg:flex-row gap-4 items-center">
           <div className="w-full lg:w-2/3">
             <ul className="flex gap-4 text-md list-none justify-center lg:justify-start">
@@ -100,13 +100,15 @@ const Footer: React.FC = () => {
                   <a
                     href={item.href}
                     className="font-inter font-normal text-white underline hover:decoration-2"
+                    target="_blank"
+                    rel="noreferrer"
                   >
                     {item.name}
                   </a>
                 </li>
               ))}
             </ul>
-            <div className="text-white font-inter text-[14px] flex justify-center lg:justify-start mt-2 lg:mt-1">
+            <div className="text-white font-inter text-[14px] flex justify-center lg:justify-start mt-2.5">
               © Copyright 2024 London Borough of Hounslow. Powered
               by
               <a

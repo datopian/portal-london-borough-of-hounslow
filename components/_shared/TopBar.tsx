@@ -3,7 +3,7 @@ import { Bars3Icon, XMarkIcon } from "@heroicons/react/20/solid";
 import Link from "next/link";
 import { useState } from "react";
 
-export default function Example() {
+export default function Topbar() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
   return (
@@ -28,13 +28,16 @@ export default function Example() {
                 DATASETS
               </Link>
               <Link
-                href="/organizations"
+                href="/organisations"
                 className="font-semibold text-secondary my-auto"
               >
                 ORGS
               </Link>
               <Link href="/groups" className="font-semibold text-secondary my-auto">
                 GROUPS
+              </Link>
+              <Link href="/about" className="font-semibold text-secondary my-auto">
+                ABOUT
               </Link>
             </li>
           </div>
@@ -87,7 +90,7 @@ export default function Example() {
                   DATASETS
                 </Link>
                 <Link
-                  href="/organizations"
+                  href="/organisations"
                   className="font-semibold text-white my-auto"
                 >
                   ORGS
@@ -97,6 +100,12 @@ export default function Example() {
                   className="font-semibold text-white my-auto"
                 >
                   GROUPS
+                </Link>
+                <Link
+                  href="/about"
+                  className="font-semibold text-white my-auto"
+                >
+                  ABOUT
                 </Link>
               </div>
             </div>

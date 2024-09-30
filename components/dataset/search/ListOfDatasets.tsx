@@ -34,7 +34,6 @@ function ListItems({
   setOptions: Dispatch<SetStateAction<PackageSearchOptions>>
 }) {
   const { data } = useSWR(['package_search', options], async () => {
-    console.log('Options', options)
     return searchDatasets(options)
   })
   //Define which page buttons are going to be displayed in the pagination list
@@ -42,13 +41,15 @@ function ListItems({
 
   return (
     <>
-      <h2 className="text-4xl capitalize font-bold text-secondary">
+      <h2 className="text-4xl pt-8 pb-4 capitalize font-[600] text-secondary">
         {data?.count} Datasets
       </h2>
-      {data?.datasets?.map((dataset) => (
-        <DatasetCard key={dataset.id} dataset={dataset} showOrg={true} />
-      ))}
-      {data?.count && (
+      <div className="space-y-16 lg:space-y-8">
+        {data?.datasets?.map((dataset) => (
+          <DatasetCard key={dataset.id} dataset={dataset} showOrg={true} />
+        ))}
+      </div>
+      {data?.count ? (
         <Pagination
           options={options}
           subsetOfPages={subsetOfPages}
@@ -56,7 +57,7 @@ function ListItems({
           setOptions={setOptions}
           count={data.count}
         />
-      )}
+      ) : 'No Datasets Found'}
     </>
   )
 }

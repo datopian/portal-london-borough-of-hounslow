@@ -68,7 +68,7 @@ export default function DatasetSearchFilters({
       }}
     >
       <Form>
-        <section className="bg-white rounded-lg xl:p-8 p-4 mb-4 max-h-[400px] overflow-y-auto">
+        <section className="bg-white rounded-lg lg:p-8 p-4 mb-4 max-h-[400px] overflow-y-auto">
           <h1 className="font-bold pb-4 text-secondary">Refine by Theme</h1>
           {groupsData
             .slice(0, seeMoreGroups ? groupsData.length : 5)
@@ -95,7 +95,7 @@ export default function DatasetSearchFilters({
             </button>
           )}
         </section>
-        <section className="bg-white rounded-lg xl:p-8 p-4 mb-4 max-h-[400px] overflow-y-auto">
+        <section className="bg-white rounded-lg lg:p-8 p-4 mb-4 max-h-[400px] overflow-y-auto">
           <h1 className="font-bold pb-4 text-secondary">Refine by Organization</h1>
           {orgsData.slice(0, seeMoreOrgs ? orgsData.length : 5).map((org) => (
             <div key={org.id}>

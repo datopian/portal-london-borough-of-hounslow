@@ -16,7 +16,7 @@ export default function GroupCard({
 }: GroupCardProps) {
   const url = image_display_url ? new URL(image_display_url) : undefined
   return (
-    <div className="border-box border-l-[6px] border-lightaccent bg-white p-8 col-span-3 h-full text-secondary grid grid-rows-3 group hover:underline hover:cursor-pointer">
+    <Link href={`/groups/${name}`} className="border-box border-l-[6px] border-lightaccent bg-white p-8 col-span-3 h-full text-secondary grid grid-rows-3 group hover:underline hover:cursor-pointer md:min-h-[352px]">
       <Image
         src={
           image_display_url &&
@@ -34,6 +34,6 @@ export default function GroupCard({
         {description}
       </p>
 
-    </div>
+    </Link>
   )
 }

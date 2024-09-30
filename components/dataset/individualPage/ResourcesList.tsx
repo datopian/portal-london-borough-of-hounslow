@@ -13,7 +13,7 @@ export default function ResourcesList({
   datasetName,
 }: ResourcesListProps) {
   return (
-    <div className="py-8 w-full max-h-[600px]">
+    <div className="py-8 w-full max-h-[600px] space-y-8 sm:space-y-4">
       {resources.map((resource: Resource) => (
         <div
           key={resource.id}
@@ -21,8 +21,8 @@ export default function ResourcesList({
         >
           <article className="grid grid-cols-1 sm:grid-cols-6 gap-x-2 grow">
             <ResourceCard resource={resource} />
-            <div className="col-span-5 place-content-start flex flex-col gap-0">
-              <h4 className="m-auto md:m-0 font-semibold text-lg text-secondary leading-tight line-clamp-3 pr-5">
+            <div className="col-span-5 place-content-start flex flex-col gap-0 px-2">
+              <h4 className="m-auto md:m-0 font-semibold text-lg text-secondary leading-tight line-clamp-3 pr-5 py-4 sm:py-0">
                 {resource.name || 'No title'}
               </h4>
               <p className="text-sm font-normal text-secondary line-clamp-4">
@@ -30,11 +30,11 @@ export default function ResourcesList({
               </p>
             </div>
           </article>
-          <div className="flex sm:flex-col gap-2 justify-start pt-2 sm:pt-0">
+          <div className="flex sm:flex-col gap-2 justify-start pt-4 sm:pt-0">
             {resource.url && (
               <Link
                 href={resource.url}
-                className="bg-accent h-auto py-2 px-4 text-sm text-gray-800 rounded-xl font-inter font-bold hover:bg-cyan-800 text-white duration-150 flex items-center gap-1"
+                className="bg-accent py-2.5 px-8 hover:text-secondary border border-accent rounded-md font-inter font-[600] hover:bg-lightaccent text-white duration-150 flex items-center gap-1 justify-between"
               >
                 Download
                 <svg
@@ -58,7 +58,7 @@ export default function ResourcesList({
             ) && (
               <Link
                 href={`/${orgName}/${datasetName}/r/${resource.id}`}
-                className="bg-lightaccent h-auto py-2 px-4 text-sm text-white rounded-xl font-inter font-bold hover:bg-accent duration-150 flex items-center gap-1"
+                className="bg-white border-accent border py-2.5 px-8 text-accent rounded-md font-inter font-[600] hover:bg-lightaccent hover:text-secondary duration-150 flex items-center justify-between gap-1"
               >
                 Preview{' '}
                 <svg
