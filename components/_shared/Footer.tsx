@@ -7,17 +7,17 @@ const Footer: React.FC = () => {
   const navigation = {
     about: [
       {
-        name: 'About us',
-        href: '#',
+        name: 'London Borough of Hounslow',
+        href: 'https://www.hounslow.gov.uk/',
       },
-      { name: 'Contact', href: '#' },
+      { name: 'Hounslow Data Hub', href: 'https://stats.hounslow.gov.uk/' },
       {
-        name: 'Cookies',
-        href: '#',
+        name: 'Contact us',
+        href: 'https://www.hounslow.gov.uk/info/20158/customer_services',
       },
       {
         name: 'Privacy notice',
-        href: '#',
+        href: 'https://www.hounslow.gov.uk/info/20110/open_data_and_information_requests/1368/privacy_notice',
       },
     ],
     useful: [

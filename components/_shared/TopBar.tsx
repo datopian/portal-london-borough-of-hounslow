@@ -36,6 +36,9 @@ export default function Example() {
               <Link href="/groups" className="font-semibold text-secondary my-auto">
                 GROUPS
               </Link>
+              <Link href="/about" className="font-semibold text-secondary my-auto">
+                ABOUT
+              </Link>
             </li>
           </div>
         </div>
