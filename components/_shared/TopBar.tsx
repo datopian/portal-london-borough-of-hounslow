@@ -101,6 +101,12 @@ export default function Example() {
                 >
                   GROUPS
                 </Link>
+                <Link
+                  href="/about"
+                  className="font-semibold text-white my-auto"
+                >
+                  ABOUT
+                </Link>
               </div>
             </div>
           </div>
