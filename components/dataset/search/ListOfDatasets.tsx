@@ -49,7 +49,7 @@ function ListItems({
           <DatasetCard key={dataset.id} dataset={dataset} showOrg={true} />
         ))}
       </div>
-      {data?.count && (
+      {data?.count ? (
         <Pagination
           options={options}
           subsetOfPages={subsetOfPages}
@@ -57,7 +57,7 @@ function ListItems({
           setOptions={setOptions}
           count={data.count}
         />
-      )}
+      ) : 'No Datasets Found'}
     </>
   )
 }
