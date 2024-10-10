@@ -35,7 +35,7 @@ export default function GroupsPage({
     <>
       <Head>
         <title>Groups</title>
-        <meta name="description" content="List of groups from the London Borough of Hounslow Open Data Portal" />
+        <meta name="description" content="Discover various groups from the London Borough of Hounslow Open Data Portal, providing insights into the borough's diverse communities." />
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <Main miniSearch={miniSearch} groups={groups} />

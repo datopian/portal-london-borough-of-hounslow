@@ -44,7 +44,7 @@ export default function Home({
     <>
       <Head>
         <title>London Borough of Hounslow Open Data</title>
-        <meta name="description" content="London Borough of Hounslow Open Data Portal" />
+        <meta name="description" content="The London Borough of Hounslow Open Data Portal offers diverse datasets about Hounslow and its communities, promoting transparency with high-quality, standardized data." />
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <Layout>

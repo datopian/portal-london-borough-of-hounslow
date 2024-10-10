@@ -66,7 +66,7 @@ export default function DatasetSearch({
     <>
       <Head>
         <title>Datasets</title>
-        <meta name="description" content="List of datasets available at the Open Data Portal." />
+        <meta name="description" content="Explore a comprehensive list of datasets available at the London Borough of Hounslow's Open Data Portal, providing valuable insights and data for public use." />
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <Layout>
