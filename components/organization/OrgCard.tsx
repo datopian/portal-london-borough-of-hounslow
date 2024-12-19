@@ -16,12 +16,13 @@ export default function GroupCard({
 }: OrgCardProps) {
   const url = image_display_url ? new URL(image_display_url) : undefined
   return (
-    <Link href={`@${name}`} className="border-box border-l-[6px] border-lightaccent bg-white p-8 col-span-3 h-full text-secondary grid grid-rows-3 group hover:underline hover:cursor-pointer">
+    <Link
+      href={`@${name}`}
+      className="border-box border-l-[6px] border-lightaccent bg-white p-8 col-span-3 h-full text-secondary grid grid-rows-3 group hover:underline hover:cursor-pointer"
+    >
       <Image
         src={
-          image_display_url &&
-          url &&
-          getConfig().publicRuntimeConfig.DOMAINS.includes(url.hostname)
+          image_display_url && url
             ? image_display_url
             : '/images/logos/DefaultOrgLogo.svg'
         }
