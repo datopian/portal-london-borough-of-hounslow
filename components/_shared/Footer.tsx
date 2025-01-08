@@ -112,7 +112,7 @@ const Footer: React.FC = () => {
               © Copyright 2024 London Borough of Hounslow. Powered
               by
               <a
-                href="https://portaljs.org"
+                href="https://portaljs.com"
                 target="_blank"
                 rel="noreferrer"
                 className="group"
