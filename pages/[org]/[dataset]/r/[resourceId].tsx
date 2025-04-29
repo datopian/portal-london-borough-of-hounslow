@@ -20,10 +20,10 @@ const ExcelViewer = dynamic(
   { ssr: false }
 )
 
-const RawCsvViewer = dynamic(
-  () => import('@portaljs/components').then((mod) => mod.FlatUiTable),
+const CSVPreview = dynamic(
+  () => import("@/components/resources/CSVPreview").then((mod) => mod.default),
   { ssr: false }
-)
+);
 
 const MapViewer = dynamic(
   () => import('@portaljs/components').then((mod) => mod.Map),
@@ -176,7 +176,7 @@ export default function ResourcePage({
               <div className="lg:px-8">
                 {resourceFormat == 'csv' ? (
                   <div>
-                    <RawCsvViewer url={resource.url} />
+                    <CSVPreview resource={resource} />
                   </div>
                 ) : null}
                 {resourceFormat == 'pdf' && (
