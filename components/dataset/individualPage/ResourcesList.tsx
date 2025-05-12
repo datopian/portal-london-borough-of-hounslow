@@ -1,6 +1,6 @@
-import { Resource } from '@portaljs/ckan'
 import ResourceCard from '../_shared/ResourceCard'
 import Link from 'next/link'
+import { Resource } from '@/interfaces/dataset'
 
 interface ResourcesListProps {
   resources: Array<Resource>
@@ -53,9 +53,9 @@ export default function ResourcesList({
                 </svg>
               </Link>
             )}
-            {['csv', 'pdf', 'xlsx', 'xls'].includes(
+            {(['csv', 'pdf', 'xlsx', 'xls'].includes(
               resource.format.toLowerCase()
-            ) && (
+            ) || resource?.iframe) && (
               <Link
                 href={`/${orgName}/${datasetName}/r/${resource.id}`}
                 className="bg-white border-accent border py-2.5 px-8 text-accent rounded-md font-inter font-[600] hover:bg-lightaccent hover:text-secondary duration-150 flex items-center justify-between gap-1"

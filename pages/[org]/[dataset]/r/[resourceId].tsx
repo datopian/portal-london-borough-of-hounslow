@@ -3,12 +3,12 @@ import { format } from 'timeago.js'
 import ResourceCard from '@/components/dataset/_shared/ResourceCard'
 import Layout from '@/components/_shared/Layout'
 import TopBar from '@/components/_shared/TopBar'
-import { Resource } from '@portaljs/ckan'
 import { CKAN } from '@portaljs/ckan'
 import dynamic from 'next/dynamic'
 import Link from 'next/link'
 import Head from 'next/head'
 import { capitalize } from '@/lib/utils'
+import { Resource } from '@/interfaces/dataset'
 
 const PdfViewer = dynamic(
   () => import('@portaljs/components').then((mod) => mod.PdfViewer),
@@ -194,6 +194,12 @@ export default function ResourcePage({
                     layers={[{ data: resource.url, name: 'Geojson' }]}
                     title={resource.name}
                   />
+                )}
+                {resource?.iframe && (
+                  <iframe
+                    src={resource.url}
+                    style={{ width: `100%`, height: `600px` }}
+                  ></iframe>
                 )}
               </div>
             </div>
