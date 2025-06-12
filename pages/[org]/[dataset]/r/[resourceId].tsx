@@ -1,14 +1,16 @@
-import { GetStaticProps } from 'next'
-import { format } from 'timeago.js'
-import ResourceCard from '@/components/dataset/_shared/ResourceCard'
-import Layout from '@/components/_shared/Layout'
-import TopBar from '@/components/_shared/TopBar'
-import { CKAN } from '@portaljs/ckan'
-import dynamic from 'next/dynamic'
-import Link from 'next/link'
-import Head from 'next/head'
-import { capitalize } from '@/lib/utils'
-import { Resource } from '@/interfaces/dataset'
+import { GetStaticProps } from "next";
+import { format } from "timeago.js";
+import ResourceCard from "@/components/dataset/_shared/ResourceCard";
+import Layout from "@/components/_shared/Layout";
+import TopBar from "@/components/_shared/TopBar";
+import { CKAN } from "@portaljs/ckan";
+import dynamic from "next/dynamic";
+import Link from "next/link";
+import Head from "next/head";
+import { capitalize } from "@/lib/utils";
+import { Resource } from "@/interfaces/dataset";
+import { getOrganization } from "@/lib/queries/orgs";
+import { getDataset } from "@/lib/queries/dataset";
 
 const PdfViewer = dynamic(
   () => import('@portaljs/components').then((mod) => mod.PdfViewer),
@@ -31,35 +33,52 @@ const MapViewer = dynamic(
 )
 
 export const getServerSideProps: GetStaticProps = async (context) => {
-  const DMS = process.env.NEXT_PUBLIC_DMS
-  const ckan = new CKAN(DMS)
-  try {
-    const resourceId = context.params?.resourceId
-    if (!resourceId) {
-      console.log('[!] resourceId not found')
-      return {
-        notFound: true,
-      }
-    }
+  const DMS = process.env.NEXT_PUBLIC_DMS;
+  const ckan = new CKAN(DMS);
 
-    const resource = await ckan.getResourceMetadata(resourceId as string)
-    if (!resource) {
-      console.log('[!] Resource metadata not found')
-      return {
-        notFound: true,
-      }
-    }
+  let orgName = context.params?.org as string;
+  const datasetName = context.params?.dataset as string;
+  const resourceId = context.params?.resourceId;
 
+  if (!orgName.startsWith("@")) {
     return {
-      props: { resource },
-    }
-  } catch (e) {
-    console.log(e)
+      redirect: {
+        destination: `/@${orgName}/${datasetName}/r/${resourceId}`,
+        permanent: true,
+      },
+    };
+  }
+  orgName = orgName.split("@").at(1);
+
+  const resource = await ckan.getResourceMetadata(resourceId as string);
+  if (!resource) {
+    console.log("[!] Resource metadata not found");
     return {
       notFound: true,
-    }
+    };
   }
-}
+
+  try {
+    const org = await getOrganization({ name: orgName });
+    const dataset = await getDataset({ name: datasetName });
+
+    const isResourceBelongsToDataset = resource.package_id == dataset.id;
+    const isDatasetBelongsToOrg = dataset.owner_org == org.id;
+
+    if (!isResourceBelongsToDataset || !isDatasetBelongsToOrg) {
+      throw new Error("Inconsistent dataset or org");
+    }
+  } catch (e) {
+    console.error(e.message);
+    return {
+      notFound: true,
+    };
+  }
+
+  return {
+    props: { resource },
+  };
+};
 
 export default function ResourcePage({
   resource,
