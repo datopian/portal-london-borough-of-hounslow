@@ -75,7 +75,7 @@ export default function DatasetCard({
       </div>
 
       <div className="col-span-6 place-content-start flex flex-col gap-1">
-        <Link href={`/${dataset.organization.name}/${dataset.name}`}>
+        <Link href={`/@${dataset.organization.name}/${dataset.name}`}>
           <h1 className="m-auto md:m-0 font-semibold text-lg text-secondary">
             {dataset.title || 'No title'}
           </h1>

@@ -57,7 +57,7 @@ export default function ResourcesList({
               resource.format.toLowerCase()
             ) || resource?.iframe) && (
               <Link
-                href={`/${orgName}/${datasetName}/r/${resource.id}`}
+                href={`/@${orgName}/${datasetName}/r/${resource.id}`}
                 className="bg-white border-accent border py-2.5 px-8 text-accent rounded-md font-inter font-[600] hover:bg-lightaccent hover:text-secondary duration-150 flex items-center justify-between gap-1"
               >
                 Preview{' '}

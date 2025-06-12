@@ -20,7 +20,7 @@ export default function DatasetNavCrumbs({
             Datasets
           </Link>
           <Link
-            href={`/${org.name}`}
+            href={`/@${org.name}`}
             passHref
             className="font-semibold text-white underline hover:decoration-2 transition"
           >
