@@ -16,7 +16,7 @@ import { capitalize } from "@/lib/utils";
 export async function getStaticPaths() {
   const paths = (await getAllOrganizations({ detailed: false })).map(
     (org: Organization) => ({
-      params: { org: org.name },
+      params: { org: `@${org.name}` },
     })
   );
   return {
@@ -28,17 +28,28 @@ export async function getStaticPaths() {
 export const getStaticProps: GetStaticProps = async (context) => {
   const DMS = process.env.NEXT_PUBLIC_DMS;
   const ckan = new CKAN(DMS);
-  let orgName = context.params?.org as string;
-  if (!orgName) {
+  let orgName = context.params.org as string;
+  if (!orgName.startsWith("@")) {
+    return {
+      redirect: {
+        destination: `/@${orgName}`,
+        permanent: true,
+      },
+    };
+  }
+  orgName = orgName.split("@").at(1);
+  let org = null;
+  try {
+    org = await getOrganization({
+      name: orgName as string,
+      include_datasets: true,
+    });
+  } catch (e) {
     return {
       notFound: true,
     };
   }
-  orgName = orgName.includes("@") ? orgName.split("@")[1] : orgName;
-  let org = await getOrganization({
-    name: orgName as string,
-    include_datasets: true,
-  });
+
   if (org.packages) {
     const packagesWithResources = await Promise.all(
       org.packages.map(
@@ -48,11 +59,6 @@ export const getStaticProps: GetStaticProps = async (context) => {
     org = { ...org, packages: packagesWithResources };
   }
   const activityStream = await ckan.getOrgActivityStream(org._name);
-  if (!org) {
-    return {
-      notFound: true,
-    };
-  }
   org = { ...org, activity_stream: activityStream };
   return {
     props: {
