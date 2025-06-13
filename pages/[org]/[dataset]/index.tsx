@@ -1,6 +1,5 @@
 import { GetStaticProps, InferGetStaticPropsType } from 'next'
 import Head from 'next/head'
-import getConfig from 'next/config'
 import DatasetInfo from '@/components/dataset/individualPage/DatasetInfo'
 import DatasetOverview from '@/components/dataset/individualPage/DatasetOverview'
 import DatasetNavCrumbs from '@/components/dataset/individualPage/NavCrumbs'
@@ -32,7 +31,7 @@ export async function getStaticPaths() {
     .map((dataset: DatasetType) => ({
       params: {
         dataset: privateToPublicDatasetName(dataset.name, mainOrg),
-        org: privateToPublicOrgName(dataset.organization?.name, mainOrg),
+        org: `@${privateToPublicOrgName(dataset.organization?.name, mainOrg)}`,
       },
     }))
   return {
@@ -45,7 +44,19 @@ export const getStaticProps: GetStaticProps = async (context) => {
   try {
     const ckan = new CKAN(process.env.NEXT_PUBLIC_DMS)
     const mainOrg = process.env.NEXT_PUBLIC_ORG
+    let orgName = context.params.org as string;
     const datasetName = context.params?.dataset as string
+
+    if (!orgName.startsWith("@")) {
+      return {
+        redirect: {
+          destination: `/@${orgName}/${datasetName}`,
+          permanent: true,
+        },
+      };
+    }
+    orgName = orgName.split("@").at(1)
+
     const privateDatasetName = publicToPrivateDatasetName(datasetName, mainOrg)
     if (!datasetName) {
       return {
@@ -53,7 +64,7 @@ export const getStaticProps: GetStaticProps = async (context) => {
       }
     }
     let dataset = await getDataset({ name: datasetName as string })
-    if (!dataset) {
+    if (!dataset || dataset.organization.name != orgName) {
       return {
         notFound: true,
       }
