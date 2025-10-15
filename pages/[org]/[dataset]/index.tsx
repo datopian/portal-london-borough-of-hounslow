@@ -8,36 +8,36 @@ import ActivityStream from '@/components/_shared/ActivityStream'
 import Layout from '@/components/_shared/Layout'
 import Tabs from '@/components/_shared/Tabs'
 import TopBar from '@/components/_shared/TopBar'
-import { Dataset as DatasetType } from '@portaljs/ckan'
 import { CKAN } from '@portaljs/ckan'
 import styles from 'styles/DatasetInfo.module.scss'
 import {
-  getAvailableOrgs,
   privateToPublicDatasetName,
   privateToPublicOrgName,
   publicToPrivateDatasetName,
 } from '@/lib/queries/utils'
-import { getDataset } from '@/lib/queries/dataset'
+import { getDataset, searchDatasets } from '@/lib/queries/dataset'
+
+const NOTFOUND_REVALIDATE_INTERVAL = 60 * 5
 
 export async function getStaticPaths() {
-  const ckan = new CKAN(process.env.NEXT_PUBLIC_DMS)
-  const mainOrg = process.env.NEXT_PUBLIC_ORG
-  const availableOrgs = await getAvailableOrgs(mainOrg)
-  const paths = (
-    await ckan.getDatasetsListWithDetails({ offset: 0, limit: 1000 })
-  )
-    //Only create routes for datasets whose owner_orgs is in the availableOrgs list
-    .filter((dataset) => availableOrgs.includes(dataset.organization?.name))
-    .map((dataset: DatasetType) => ({
-      params: {
-        dataset: privateToPublicDatasetName(dataset.name, mainOrg),
-        org: `@${privateToPublicOrgName(dataset.organization?.name, mainOrg)}`,
-      },
-    }))
+  const mainOrg = process.env.NEXT_PUBLIC_ORG;
+  const datasets = await searchDatasets({
+    offset: 0,
+    limit: 1000,
+    groups: [],
+    orgs: [],
+    tags: [],
+  });
+  const paths = datasets.datasets.map((d) => ({
+    params: {
+      dataset: privateToPublicDatasetName(d.name, mainOrg),
+      org: `@${privateToPublicOrgName(d.organization?.name, mainOrg)}`,
+    },
+  }));
   return {
     paths,
-    fallback: 'blocking',
-  }
+    fallback: "blocking",
+  };
 }
 
 export const getStaticProps: GetStaticProps = async (context) => {
@@ -60,13 +60,14 @@ export const getStaticProps: GetStaticProps = async (context) => {
     const privateDatasetName = publicToPrivateDatasetName(datasetName, mainOrg)
     if (!datasetName) {
       return {
-        notFound: true,
+        notFound: true
       }
     }
     let dataset = await getDataset({ name: datasetName as string })
     if (!dataset || dataset.organization.name != orgName) {
       return {
         notFound: true,
+        revalidate: NOTFOUND_REVALIDATE_INTERVAL
       }
     }
     const activityStream = await ckan.getDatasetActivityStream(
@@ -85,6 +86,7 @@ export const getStaticProps: GetStaticProps = async (context) => {
   } catch {
     return {
       notFound: true,
+      revalidate: NOTFOUND_REVALIDATE_INTERVAL
     }
   }
 }
