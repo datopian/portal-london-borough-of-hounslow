@@ -109,7 +109,7 @@ const Footer: React.FC = () => {
               ))}
             </ul>
             <div className="text-white font-inter text-[14px] flex justify-center lg:justify-start mt-2.5">
-              © Copyright 2024 London Borough of Hounslow. Powered
+              © Copyright 2026 London Borough of Hounslow. Powered
               by
               <a
                 href="https://portaljs.com"
