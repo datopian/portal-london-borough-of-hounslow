@@ -6,19 +6,8 @@ export default function DatasetOverview({ dataset }: { dataset: Dataset }) {
       <div className=" pb-5">
         <h4 className="pb-2 text-xs label-txt tracking-wider">AUTHOR</h4>
         <p className="font-semibold">
-          {dataset.author
-            ? dataset.author
-            : dataset.organization
-            ? dataset.organization.title
-            : ""}
-        </p>
-      </div>
-      <div className="  pb-5">
-        <h4 className="pb-1 text-xs label-txt tracking-wider">AUTHOR EMAIL</h4>
-        <p className="font-semibold">
-          {dataset.author_email
-            ? dataset.author_email
-            : ""}
+          {/* Author fields are internal to Hounslow; show the publishing organisation instead */}
+          {dataset.organization ? dataset.organization.title : ""}
         </p>
       </div>
       <div className="  pb-5">

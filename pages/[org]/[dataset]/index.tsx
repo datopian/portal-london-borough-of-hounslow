@@ -19,6 +19,13 @@ import { getDataset, searchDatasets } from '@/lib/queries/dataset'
 
 const NOTFOUND_REVALIDATE_INTERVAL = 60 * 5
 
+function omitAuthor<T extends object>(item: T): T {
+  const copy = { ...item }
+  delete (copy as Record<string, unknown>).author
+  delete (copy as Record<string, unknown>).author_email
+  return copy
+}
+
 export async function getStaticPaths() {
   const mainOrg = process.env.NEXT_PUBLIC_ORG;
   const datasets = await searchDatasets({
@@ -73,9 +80,18 @@ export const getStaticProps: GetStaticProps = async (context) => {
     const activityStream = await ckan.getDatasetActivityStream(
       privateDatasetName
     )
+    // Author fields are internal to Hounslow: keep them out of the page
+    // props (and so out of the page source), including activity snapshots.
     dataset = {
-      ...dataset,
-      activity_stream: activityStream,
+      ...omitAuthor(dataset),
+      activity_stream: (activityStream ?? []).map((activity) =>
+        activity?.data?.package
+          ? {
+              ...activity,
+              data: { ...activity.data, package: omitAuthor(activity.data.package) },
+            }
+          : activity
+      ),
     }
     return {
       props: {

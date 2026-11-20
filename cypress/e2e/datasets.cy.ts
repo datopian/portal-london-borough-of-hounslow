@@ -58,52 +58,21 @@ describe("Dataset Page Tests", () => {
           // Check the dataset Metadata
           cy.wait("@dataset_metadata").then((interception) => {
             cy.wait(2000);
+            const dataset = interception.response?.body?.pageProps?.dataset;
+            // Author fields are internal: never in the page props...
+            expect(dataset).to.not.have.property("author");
+            expect(dataset).to.not.have.property("author_email");
+            // ...and the AUTHOR block shows the publishing organisation
             cy.get("h4.tracking-wider")
               .first()
               .next()
               .invoke("text")
               .then((text) => {
                 expect(text.toString()).to.contain(
-                  `${interception.response?.body?.pageProps?.dataset?.author}`
+                  `${dataset?.organization?.title ?? ""}`
                 );
               });
-
-            cy.get("h4.tracking-wider")
-              .first()
-              .next()
-              .invoke("text")
-              .then((text) => {
-                expect(text.toString()).to.contain(
-                  `${interception.response?.body?.pageProps?.dataset?.author}`
-                );
-              });
-            cy.get("h4.tracking-wider")
-              .eq(1)
-              .next()
-              .invoke("text")
-              .then((text) => {
-                expect(text.toString()).to.contain(
-                  `${interception.response?.body?.pageProps?.dataset?.author_email}`
-                );
-              });
-            cy.get("h4.tracking-wider")
-              .first()
-              .next()
-              .invoke("text")
-              .then((text) => {
-                expect(text.toString()).to.contain(
-                  `${interception.response?.body?.pageProps?.dataset?.author}`
-                );
-              });
-            cy.get("h4.tracking-wider")
-              .first()
-              .next()
-              .invoke("text")
-              .then((text) => {
-                expect(text.toString()).to.contain(
-                  `${interception.response?.body?.pageProps?.dataset?.author}`
-                );
-              });
+            cy.contains("h4", "AUTHOR EMAIL").should("not.exist");
           });
 
           // Nav buttons Click for the Information Tab
